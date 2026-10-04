@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-04T08:50:18.427Z",
+  "checkedAt": "2026-10-04T09:40:31.600Z",
   "gameId": 8537,
   "mode": "relative URLs without query parameters",
   "files": [
@@ -31,8 +31,8 @@
       "path": "assets/audio/engine.wav",
       "status": 200,
       "mime": "application/octet-stream;charset=UTF-8",
-      "bytes": 1411244,
-      "sha256": "9511dc5e24ecada0626ae94f9d481dd8748a5edeb6347c84d88cd4dde76605e7",
+      "bytes": 684476,
+      "sha256": "8f3e3642bd78e43ba9ceea8efa48cf616e7811171329c8d3d5d83ff9a51c9686",
       "matchesLocal": true
     },
     {
@@ -116,19 +116,19 @@
       "matchesLocal": true
     },
     {
-      "path": "assets/index-B29pNIuX.js",
-      "status": 200,
-      "mime": "text/javascript;charset=UTF-8",
-      "bytes": 4986983,
-      "sha256": "531a225d09f00107f885841253a5aafdfee568278eb58e97ff4b77219f766964",
-      "matchesLocal": true
-    },
-    {
       "path": "assets/index-CwMHZrW6.css",
       "status": 200,
       "mime": "text/css;charset=UTF-8",
       "bytes": 7120,
       "sha256": "69ccae1fa13a2044271dc41186ebf42552340367491e6510ac9a8f1b11dcf3cc",
+      "matchesLocal": true
+    },
+    {
+      "path": "assets/index-Dilrf4TE.js",
+      "status": 200,
+      "mime": "text/javascript;charset=UTF-8",
+      "bytes": 4989312,
+      "sha256": "e818f51ab715babb5a181c6edf65292484ccca3d69f7781f6cc1f5d8f6930cc4",
       "matchesLocal": true
     },
     {
@@ -344,7 +344,7 @@
       "status": 200,
       "mime": "application/json;charset=UTF-8",
       "bytes": 308198,
-      "sha256": "a87663858100fb1e475400a0d339d9c315b2e5041a80ee9e5a371d3bdfbba64d",
+      "sha256": "096fcc79756d7c7bc183743868c9c22e223e056504f5139b4884eced20442993",
       "matchesLocal": true
     },
     {
@@ -352,7 +352,7 @@
       "status": 200,
       "mime": "text/html;charset=UTF-8",
       "bytes": 557,
-      "sha256": "4bdd710edc8fcd2750c4fa2b81ef0ab866aa699aa623e2a4faf5ff98f0eb1a1e",
+      "sha256": "4950b8ad4862b3d648f35e9586340726af56f7026a88cfa537ed81e3e142ff6b",
       "matchesLocal": true
     }
   ]

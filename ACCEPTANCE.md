@@ -21,7 +21,7 @@
 | 本轮场景优化 | 新增贴图浮岛基座、远景岛群、道路桁架 / 斜撑、边灯、箭头、接缝、环道外框与渐变天空。原赛道和物理哈希不变。 |
 | 环境成本 | 新增环境 1,092,892 bytes、14,588 triangles，合并后 6 个材质绘制批次；见 `assets/environment-report.json`。 |
 | 路线净空 | Blender 场景沿可行驶样本的 5 条横向采样线，4,445 次法向射线检查，路面上方 0.15–3.65 m 无装饰命中；见 `evidence/scenery-clearance.json`。这不等同于所有相机角度的目视验收。 |
-| 平台配置 | preview 榜 `skyline_v1_time`，MIN / ASC，daily / weekly / fourweekly；check 通过，doctor 12 pass、0 warn、0 fail。 |
+| 平台配置 | 当前 preview 榜 `skyline_v2_time`，MIN / ASC，daily / weekly / fourweekly；旧榜保留；check 通过，doctor 12 pass、0 warn、0 fail。 |
 | CDN | 草稿上传后逐一读取所有 dist 相对资源和封面，HTTP 及 SHA-256 与本地一致性记录在 `evidence/cdn-check.json`。 |
 
 赛道哈希：`2742d249dde822df1330e2b339ee931e137a47c958e979c0102980003690cbb3`。

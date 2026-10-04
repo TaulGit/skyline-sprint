@@ -5,11 +5,11 @@ const base=new URL('.',detail.gameFile), paths=['index.html',...detail.assets.ma
 const rows=[];let next=0;
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
 await Promise.all(Array.from({length:4},async()=>{
- while(next<paths.length){const path=paths[next++],response=await fetch(new URL(path,base),{signal:AbortSignal.timeout(30000)}),bytes=Buffer.from(await response.arrayBuffer()),local=readFileSync('dist/'+path);
+ while(next<paths.length){const path=paths[next++],response=await fetch(new URL(path,base),{signal:AbortSignal.timeout(90000)}),bytes=Buffer.from(await response.arrayBuffer()),local=readFileSync('dist/'+path);
   rows.push({path,status:response.status,mime:response.headers.get('content-type'),bytes:bytes.length,sha256:hash(bytes),matchesLocal:hash(bytes)===hash(local)});
  }
 }));
-const cover=await fetch(detail.cover,{signal:AbortSignal.timeout(30000)}),coverBytes=Buffer.from(await cover.arrayBuffer());
+const cover=await fetch(detail.cover,{signal:AbortSignal.timeout(90000)}),coverBytes=Buffer.from(await cover.arrayBuffer());
 const coverPath=JSON.parse(readFileSync('star-letter.json','utf8')).cover;
 rows.push({path:coverPath,status:cover.status,mime:cover.headers.get('content-type'),bytes:coverBytes.length,sha256:hash(coverBytes),matchesLocal:hash(coverBytes)===hash(readFileSync(coverPath))});
 rows.sort((a,b)=>a.path.localeCompare(b.path));

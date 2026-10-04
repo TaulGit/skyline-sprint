@@ -21,7 +21,7 @@
 | 本轮场景优化 | 新增贴图浮岛基座、远景岛群、道路桁架 / 斜撑、边灯、箭头、接缝、环道外框与渐变天空。原赛道和物理哈希不变。 |
 | 环境成本 | 新增环境 1,092,892 bytes、14,588 triangles，合并后 6 个材质绘制批次；见 `assets/environment-report.json`。 |
 | 路线净空 | Blender 场景沿可行驶样本的 5 条横向采样线，4,445 次法向射线检查，路面上方 0.15–3.65 m 无装饰命中；见 `evidence/scenery-clearance.json`。这不等同于所有相机角度的目视验收。 |
-| 平台配置 | 当前 preview 榜 `skyline_v3_time`，MIN / ASC，daily / weekly / fourweekly；旧榜保留；check 通过，doctor 12 pass、0 warn、0 fail。 |
+| 平台配置 | 当前 preview 榜 `skyline_v4_time`，MIN / ASC，daily / weekly / fourweekly；旧榜保留；check 通过，doctor 12 pass、0 warn、0 fail。 |
 | CDN | 草稿上传后逐一读取所有 dist 相对资源和封面，HTTP 及 SHA-256 与本地一致性记录在 `evidence/cdn-check.json`。 |
 
 赛道哈希：`2742d249dde822df1330e2b339ee931e137a47c958e979c0102980003690cbb3`。
@@ -79,3 +79,12 @@ star-letter dev --open
 - npm test：20 项通过；npm run build：通过。CDN 44 个文件 HTTP 200、SHA256 与本地产物一致。
 - 星匣 #8537 保持草稿。平台玩法、音量听感与移动端仍由创作者预览验收。
 
+
+## 2026-10-04 护栏与场景扩建
+
+- 圆顶连续护栏、轮胎射线仅检测路面、贴地撞栏时消除向外动量；离地和断桥不吸附。左右护栏分别在 90、180、252 km/h 下验证无弹飞。
+- `raycast-120-v4-dev` 使用独立 preview board `skyline_v4_time`，不混入旧物理成绩。
+- 全部 29 项测试通过；30/60/120 FPS 回放均正常完成六个检查点及终点，37.086 秒。
+- 三款赛车可选择并保存；新增两块中文减速牌、模块围栏、四艘空艇、三座空中城、四座 Blender 观测城和两幅远景图。
+- 本机浏览器已检查菜单、选车和新赛车上赛道，场景稳定显示；平台云端授权及真实驾驶手感仍需创作者在预览中验收。
+- 修正 Vite 开发入口路径；官方 SDK 异步加载，SDK 网络延迟不再阻止游戏首屏。

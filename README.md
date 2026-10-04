@@ -7,6 +7,9 @@
 ## 玩法
 
 - 四轮射线悬挂与固定 120 Hz 物理模拟；转弯时按刹车可以漂移，车轮接地点会留下痕迹。
+- 三款可选赛车：流光、赤隼、逐风；性能一致，选择自动保存。
+- 圆顶连续护栏与侧向缓冲，跳台前两处“请减速”提示。
+- Tripo 空中城、空艇和赛道道具，Blender 精修建筑，双幅远景背景。
 - 跳台、倾斜高速弯、竖直环道，以及计时、分段和金银铜目标。
 - 本机可练习；在星匣预览中可使用云端存档与排行榜。
 - 两首 Sky Flight 背景音乐轮播，设置中可切歌。
@@ -63,8 +66,16 @@ git lfs pull
 | `assets/blender/` | 可编辑场景和模型源文件（Git LFS） |
 | `tools/` | 构建、音频转换与验证脚本 |
 
-当前赛道规则 `skyline-v1.1.0-dev`、物理规则 `raycast-120-v3-dev` 对应独立的预览榜 `skyline_v3_time`，避免与旧规则的成绩混排。六道检查点按路线顺序设置；漏点后冲线会显示练习完赛，不计排行榜。排行榜仅作展示；正式发布前的验收范围见 [ACCEPTANCE.md](ACCEPTANCE.md) 和 [CDR.md](CDR.md)。
+当前赛道规则 `skyline-v1.1.0-dev`、物理规则 `raycast-120-v4-dev` 对应独立的预览榜 `skyline_v4_time`，避免与旧规则的成绩混排。六道检查点按路线顺序设置；漏点后冲线会显示练习完赛，不计排行榜。排行榜仅作展示；正式发布前的验收范围见 [ACCEPTANCE.md](ACCEPTANCE.md) 和 [CDR.md](CDR.md)。
 
 ## 素材来源
 
 赛车声使用 [qubodup 的真实发动机录音](https://opengameart.org/content/car-engine-loop-96khz-4s)（CC BY 3.0，已在 [音频来源](assets/AUDIO_LICENSES.md) 署名并说明修改）；其他音效来自 [Kenney](https://kenney.nl/) 的 CC0 素材。两首 Sky Flight 音乐由创作者提供，不属于这些开放音效许可。封面、场景及模型源文件随仓库保存，详情见 [场景资料](assets/SCENE.md)。
+
+## Tripo 与 Blender 制作记录
+
+新增 6 个 Tripo P1 模型：耐力原型车、拉力赛车、警示牌、模块护栏、空艇、空中城；本轮实际消耗 240 积分。原有 25 个任务累计 1240 积分，项目合计 1480 积分。提示词、种子及任务回执分别保存在 `assets/source/expansion-plan.json` 和 `assets/source/expansion-receipts.json`。
+
+`tools/blender-expansion.py` 统一模型尺寸和朝向、分离车轮、制作中文标牌，并搭建带窗格、阳台与穹顶的观测城。`tools/optimize-expansion.mjs` 输出 WebP 贴图 GLB、LOD 与运行时清单。可编辑 `.blend` 与原始导出在 Git LFS 中；两幅背景图经压缩后保存在 `public/assets/sky-*.webp`。
+
+最近回归：29 项自动测试通过；左右护栏 90/180/252 km/h 擦碰不弹飞；30/60/120 FPS 的完整赛道模拟均为 37.086 秒。

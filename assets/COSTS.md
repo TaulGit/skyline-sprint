@@ -1,6 +1,6 @@
 # Tripo 实际账单
 
-2026-10-04 核对：25 次生成，总计 1240 积分，余额 23560，冻结 0。无付费转换、重贴图或 LOD；精修和 LOD 在本机完成。
+2026-10-04 核对：31 次生成，总计 1480 积分（原有 25 次 1240，本轮 6 次 240）。无付费转换、重贴图或 LOD；精修和 LOD 在本机完成。
 
 |资产|类型|Task ID|实际积分|
 |---|---|---|---:|
@@ -29,3 +29,15 @@
 |\floating-rock-2-6d9ca692|text_to_model|6d9ca692-8b38-4684-839f-dbdd292c5ed8|40|
 |\watchtower-1-cf8aa49e|text_to_model|cf8aa49e-00d5-4d8a-800f-62fdc730a7d7|40|
 |\watchtower-2-4053d3a1|text_to_model|4053d3a1-bf2e-4d20-bcc5-4da193d6c7b4|40|
+## 2026-10-04 扩建
+
+| 模型 | 任务 | 积分 |
+| --- | --- | --- |
+| endurance-coupe | 4cf19174-b1eb-4101-94b6-23c18821b8b2 | 40 |
+| rally-buggy | e67a9290-a65a-4484-a326-87ee8a1f6c34 | 40 |
+| warning-sign | 63e4ed36-1b3f-48cc-9ab1-390b2c91e1ac | 40 |
+| safety-barrier | 2e76745e-7847-499e-b824-362959bfa583 | 40 |
+| sky-airship | abf36a92-2602-4c61-9e1b-9b10dc26e311 | 40 |
+| sky-citadel | 2d5cb89b-26f1-4fc8-911f-34947eb85bc4 | 40 |
+
+本轮 240 积分；项目累计 1480 积分。无付费转换步骤。

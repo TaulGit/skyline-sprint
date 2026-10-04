@@ -1,0 +1,44 @@
+[
+  {
+    "name": "endurance-coupe",
+    "triangles": 11025,
+    "lodTriangles": 6605,
+    "bytes": 779928
+  },
+  {
+    "name": "rally-buggy",
+    "triangles": 11833,
+    "lodTriangles": 9130,
+    "bytes": 1000656
+  },
+  {
+    "name": "warning-sign",
+    "triangles": 8007,
+    "lodTriangles": 8007,
+    "bytes": 354980
+  },
+  {
+    "name": "safety-barrier",
+    "triangles": 4827,
+    "lodTriangles": 2413,
+    "bytes": 299080
+  },
+  {
+    "name": "sky-airship",
+    "triangles": 11672,
+    "lodTriangles": 7060,
+    "bytes": 855996
+  },
+  {
+    "name": "sky-citadel",
+    "triangles": 19710,
+    "lodTriangles": 14552,
+    "bytes": 1435372
+  },
+  {
+    "name": "distant-observatory",
+    "triangles": 28844,
+    "lodTriangles": 28844,
+    "bytes": 1570944
+  }
+]

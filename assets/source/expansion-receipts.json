@@ -1,0 +1,179 @@
+{
+  "totalCredits": 240,
+  "tasks": [
+    {
+      "task_id": "4cf19174-b1eb-4101-94b6-23c18821b8b2",
+      "type": "text_to_model",
+      "status": "success",
+      "input": {
+        "pbr": true,
+        "prompt": "Single stylized aerodynamic endurance racing coupe, white and burnt orange body, enclosed black glass cockpit, four exposed black tires, detailed rear diffuser and rear wing, clean unbranded motorsport design, no ground, front pointing toward positive X axis",
+        "texture": true,
+        "export_uv": true,
+        "face_limit": 12000,
+        "model_seed": 401,
+        "model_version": "P1-20260311",
+        "texture_alignment": "geometry"
+      },
+      "output_fields": [
+        "model_url",
+        "rendered_image_url",
+        "generated_image_url"
+      ],
+      "credits_consumed": 40,
+      "created_at": "2026-10-04T10:23:34.632793Z",
+      "completed_at": "2026-10-04T10:25:26.257123Z",
+      "files": [
+        "model.glb",
+        "rendered_image.webp",
+        "generated_image.jpeg",
+        "preview.png"
+      ]
+    },
+    {
+      "task_id": "e67a9290-a65a-4484-a326-87ee8a1f6c34",
+      "type": "text_to_model",
+      "status": "success",
+      "input": {
+        "pbr": true,
+        "prompt": "Single stylized compact rally racing buggy, teal and ivory panels, exposed dark tubular roll cage, four black tires, detailed suspension and rear engine vents, sporty low stance, clean unbranded design, no ground, front pointing toward positive X axis",
+        "texture": true,
+        "export_uv": true,
+        "face_limit": 12000,
+        "model_seed": 402,
+        "model_version": "P1-20260311",
+        "texture_alignment": "geometry"
+      },
+      "output_fields": [
+        "model_url",
+        "rendered_image_url",
+        "generated_image_url"
+      ],
+      "credits_consumed": 40,
+      "created_at": "2026-10-04T10:25:53.603463Z",
+      "completed_at": "2026-10-04T10:27:28.904624Z",
+      "files": [
+        "model.glb",
+        "rendered_image.webp",
+        "generated_image.jpeg",
+        "preview.png"
+      ]
+    },
+    {
+      "task_id": "63e4ed36-1b3f-48cc-9ab1-390b2c91e1ac",
+      "type": "text_to_model",
+      "status": "success",
+      "input": {
+        "pbr": true,
+        "prompt": "Single trackside warning sign on two metal legs, rounded rectangular amber sign face completely blank with no text, ivory frame, black and orange hazard stripes on base, industrial bolts, stylized sky racing game prop, isolated",
+        "texture": true,
+        "export_uv": true,
+        "face_limit": 5000,
+        "model_seed": 403,
+        "model_version": "P1-20260311",
+        "texture_alignment": "geometry"
+      },
+      "output_fields": [
+        "model_url",
+        "rendered_image_url",
+        "generated_image_url"
+      ],
+      "credits_consumed": 40,
+      "created_at": "2026-10-04T10:28:13.019175Z",
+      "completed_at": "2026-10-04T10:29:06.483750Z",
+      "files": [
+        "model.glb",
+        "rendered_image.webp",
+        "generated_image.jpeg",
+        "preview.png"
+      ]
+    },
+    {
+      "task_id": "2e76745e-7847-499e-b824-362959bfa583",
+      "type": "text_to_model",
+      "status": "success",
+      "input": {
+        "pbr": true,
+        "prompt": "Single modular motorsport safety barrier, rounded smooth ivory continuous panel, teal top rail, orange reflective stripes, recessed bolts, solid lower skirt, horizontal long low proportions, stylized sky racing game prop, isolated",
+        "texture": true,
+        "export_uv": true,
+        "face_limit": 5000,
+        "model_seed": 404,
+        "model_version": "P1-20260311",
+        "texture_alignment": "geometry"
+      },
+      "output_fields": [
+        "model_url",
+        "rendered_image_url",
+        "generated_image_url"
+      ],
+      "credits_consumed": 40,
+      "created_at": "2026-10-04T10:29:27.868157Z",
+      "completed_at": "2026-10-04T10:30:23.567013Z",
+      "files": [
+        "model.glb",
+        "rendered_image.webp",
+        "generated_image.jpeg",
+        "preview.png"
+      ]
+    },
+    {
+      "task_id": "abf36a92-2602-4c61-9e1b-9b10dc26e311",
+      "type": "text_to_model",
+      "status": "success",
+      "input": {
+        "pbr": true,
+        "prompt": "Elegant retro futuristic airship, long ivory streamlined hull with teal fins and burnt orange accents, brass propellers and small suspended observation cabin, layered panel seams, unbranded stylized sky racing world, isolated flying vehicle",
+        "texture": true,
+        "export_uv": true,
+        "face_limit": 12000,
+        "model_seed": 405,
+        "model_version": "P1-20260311",
+        "texture_alignment": "geometry"
+      },
+      "output_fields": [
+        "model_url",
+        "rendered_image_url",
+        "generated_image_url"
+      ],
+      "credits_consumed": 40,
+      "created_at": "2026-10-04T10:30:43.716665Z",
+      "completed_at": "2026-10-04T10:31:36.960408Z",
+      "files": [
+        "model.glb",
+        "rendered_image.webp",
+        "generated_image.jpeg",
+        "preview.png"
+      ]
+    },
+    {
+      "task_id": "2d5cb89b-26f1-4fc8-911f-34947eb85bc4",
+      "type": "text_to_model",
+      "status": "success",
+      "input": {
+        "pbr": true,
+        "prompt": "Large floating island supporting an elegant ivory art deco sky city with slender teal glass towers, terraces, bridges, arched harbor, detailed stone foundations and hanging waterfalls, coherent single architectural diorama, stylized painterly materials, isolated",
+        "texture": true,
+        "export_uv": true,
+        "face_limit": 18000,
+        "model_seed": 406,
+        "model_version": "P1-20260311",
+        "texture_alignment": "geometry"
+      },
+      "output_fields": [
+        "model_url",
+        "rendered_image_url",
+        "generated_image_url"
+      ],
+      "credits_consumed": 40,
+      "created_at": "2026-10-04T10:32:02.171494Z",
+      "completed_at": "2026-10-04T10:33:05.183825Z",
+      "files": [
+        "model.glb",
+        "rendered_image.webp",
+        "generated_image.jpeg",
+        "preview.png"
+      ]
+    }
+  ]
+}

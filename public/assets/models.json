@@ -127,7 +127,7 @@
         676,
         788
       ],
-      "offset": 6,
+      "offset": 6.5,
       "file": "models/beacon.glb",
       "scale": 1.4
     },
@@ -218,7 +218,14 @@
       ],
       "offset": 150,
       "height": -35,
-      "distant": true
+      "distant": true,
+      "positions": {
+        "370": [
+          -31.672360079558615,
+          15,
+          188.5566175905508
+        ]
+      }
     }
   ],
   "cars": [

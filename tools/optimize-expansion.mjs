@@ -26,6 +26,7 @@ manifest.decorations.push(
  {name:'sky-citadel',file:'models/sky-citadel.glb',scale:95,samples:[180,490,780],offset:-145,height:-45,distant:true},
  {name:'distant-observatory',file:'models/distant-observatory.glb',scale:2.1,samples:[65,370,620,870],offset:150,height:-35,distant:true}
 );
+const overrides=JSON.parse(readFileSync('assets/source/layout-overrides.json','utf8'));for(const asset of manifest.decorations)Object.assign(asset,overrides[asset.name]??{});
 writeFileSync('public/assets/models.json',JSON.stringify(manifest,null,2));writeFileSync('assets/expansion-report.json',JSON.stringify(report,null,2));
 const receipts=[];for(const name of names.slice(0,6)){const dir=readdirSync('assets/source/tripo-out').find(x=>x.startsWith(name+'-'));const receipt=JSON.parse(readFileSync(`assets/source/tripo-out/${dir}/task.json`));receipts.push(receipt);copyFileSync(`assets/source/tripo-out/${dir}/task.json`,`assets/source/receipts/${name}.json`);}
 writeFileSync('assets/source/expansion-receipts.json',JSON.stringify({totalCredits:receipts.reduce((n,x)=>n+x.credits_consumed,0),tasks:receipts},null,2));console.log(report);

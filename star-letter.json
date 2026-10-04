@@ -13,8 +13,8 @@
   "cover": "./cover-poster.png",
   "gameFile": "./dist",
   "gameType": 0,
-  "screen": 0,
-  "priceType": 0,
+  "screen": 1,
+  "priceType": 1,
   "visibility": 1,
   "capabilityDeclaration": {
     "schemaVersion": 1,
@@ -25,10 +25,14 @@
       "leaderboard": {
         "enabled": true,
         "boards": [
-          "skyline_v4_time"
+          "skyline_v5_time"
         ]
       }
     }
   },
-  "controls": "WASD/方向键驾驶；转弯时按S/↓漂移；Space手刹；R/Enter重开；C练习复位；Esc设置；支持触屏。"
+  "controls": "WASD/方向键驾驶；转弯时按S/↓漂移；Space手刹；R/Enter重开；C练习复位；Esc设置；支持触屏。",
+  "activityIds": [
+    3004
+  ],
+  "price": 0
 }

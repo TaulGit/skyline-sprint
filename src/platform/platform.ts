@@ -1,7 +1,8 @@
+import {getLanguage,type Language} from '../i18n';
 import {cloudRecord,validRecord,type RecordData} from '../game/replay';
-export const BOARD='skyline_v4_time';
-export interface Settings{car:string;color:string;sfx:number;music:number;lowMotion:boolean;quality:string;autoThrottle:boolean;ghost:boolean}
-export const defaults:Settings={car:'car',color:'#38d9ec',sfx:.6,music:.15,lowMotion:false,quality:'high',autoThrottle:false,ghost:true};
+export const BOARD='skyline_v5_time';
+export interface Settings{language:Language;car:string;color:string;sfx:number;music:number;lowMotion:boolean;quality:string;autoThrottle:boolean;ghost:boolean}
+export const defaults:Settings={language:getLanguage(),car:'car',color:'#38d9ec',sfx:.6,music:.15,lowMotion:false,quality:'high',autoThrottle:false,ghost:true};
 // Wire interfaces follow SDK v2.4.6 rev23; runtime is exclusively the official IIFE.
 interface SDK{context:{user:{id:string|number}|null;sessionId?:string;gameId:number};on:(name:string,cb:()=>void)=>()=>void;storage?:{get:(p:unknown)=>Promise<{value:unknown;version:number}>;set:(p:unknown)=>Promise<{ok:boolean;version:number}>};leaderboard?:{submit:(p:unknown)=>Promise<any>;getTop:(p:unknown)=>Promise<any>;getMyValue:(p:unknown)=>Promise<any>}}
 declare global{interface Window{GameSDK?:{init:()=>Promise<SDK>;isPlatformSDKError:(e:unknown)=>e is {code:string;details?:{retryAfterMs?:number}}}}}
@@ -18,7 +19,7 @@ export class Platform{
    this.ready=true;this.status('云存档已连接');this.local();
   }catch(e){this.ready=false;this.status(`云端读取失败 · ${this.error(e)} · 保留本机进度`);}
  }
- cleanSettings(s:any):Settings{return{car:['car','endurance-coupe','rally-buggy'].includes(s?.car)?s.car:defaults.car,color:['#38d9ec','#ff9169','#bba2ff'].includes(s?.color)?s.color:defaults.color,sfx:typeof s?.sfx==='number'?Math.max(0,Math.min(1,s.sfx)):defaults.sfx,music:typeof s?.music==='number'?Math.max(0,Math.min(1,s.music)):defaults.music,lowMotion:!!s?.lowMotion,quality:s?.quality==='low'?'low':'high',autoThrottle:!!s?.autoThrottle,ghost:s?.ghost!==false}}
+ cleanSettings(s:any):Settings{return{language:s?.language==='en'?'en':s?.language==='zh'?'zh':getLanguage(),car:['car','endurance-coupe','rally-buggy'].includes(s?.car)?s.car:defaults.car,color:['#38d9ec','#ff9169','#bba2ff'].includes(s?.color)?s.color:defaults.color,sfx:typeof s?.sfx==='number'?Math.max(0,Math.min(1,s.sfx)):defaults.sfx,music:typeof s?.music==='number'?Math.max(0,Math.min(1,s.music)):defaults.music,lowMotion:!!s?.lowMotion,quality:s?.quality==='low'?'low':'high',autoThrottle:!!s?.autoThrottle,ghost:s?.ghost!==false}}
  local(){try{localStorage.setItem(this.key(),JSON.stringify({best:this.best,settings:this.settings}));}catch{this.status('本机空间不足，当前成绩保留在内存');}}
  async save(){this.local();if(!this.sdk?.storage||!this.ready){this.status('已保存本机 · 尚未同步云端');return;}const gen=this.generation,storage=this.sdk.storage,key=`record:${this.trackVersion}:${this.physicsVersion}`;
   try{for(let attempt=0;attempt<2;attempt++){

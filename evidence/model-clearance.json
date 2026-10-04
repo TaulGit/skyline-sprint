@@ -1,0 +1,11 @@
+{
+  "trackHash": "cbbb0807c8767e26bd45e2067a4d13020a213f0ed4187680b90f9f5f8d683432",
+  "placementsChecked": 59,
+  "roadSamples": 899,
+  "marginMeters": {
+    "distant": 2,
+    "near": 0.1
+  },
+  "hits": [],
+  "moved": []
+}

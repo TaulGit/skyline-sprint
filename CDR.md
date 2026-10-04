@@ -17,7 +17,7 @@
 
 | 项目 | 结论 | 证据 |
 | --- | --- | --- |
-| 声明与资源 | pass | 游戏 8537，preview board `skyline_v4_time`，MIN/ASC，daily/weekly/fourweekly；与旧赛道/物理规则的榜隔离，doctor readiness 通过。 |
+| 声明与资源 | pass | 游戏 8537，preview board `skyline_v5_time`，MIN/ASC，daily/weekly/fourweekly；与旧赛道/物理规则的榜隔离，doctor readiness 通过。 |
 | 客户端成绩边界 | pass | 仅显示排行，不依据榜值发放资产或奖励。 |
 | 幂等 | pass | 每次正式完整完赛一个 UUID；CAPABILITY_UNAVAILABLE 同会话同结算仅一次限次重试，ID 与 payload 固定。离开该结算取消待重试。 |
 | 窗口与投影 | pass | 三种平台 view；READY/PENDING/DELAYED/EMPTY、TopK 外、拒绝授权和终态失败分别处理。未按本机日期生成窗口。 |
@@ -26,3 +26,7 @@
 ## 验收边界
 
 本报告覆盖实现设计、平台配置与模拟测试。两个真实账号的授权、完整驾驶提交、getMyValue/getTop、跨周期与真实设备验收仍需在平台完成；未将模拟测试当作真实榜单验收。正式发布前保留创作者最终确认。
+
+## 本次发布边界
+
+创作者已发布线上版本；本次仅保存更新草稿。已同步服务端锁定活动 #3004、screen=1 与免费买断配置（priceType=1、price=0）。本机测试、资源声明与榜单定义检查通过，但 doctor 的中央 capability preflight 返回异常；保留完整诊断于 evidence/doctor.json，正式更新前需平台预检恢复。

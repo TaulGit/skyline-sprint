@@ -1,5 +1,7 @@
 # 云端极速 · Skyline Sprint
 
+[English README](README_EN.md) · [Tripothon 参赛填写稿 / Submission copy](TRIPOTHON_SUBMISSION.md)
+
 ![云端极速封面](cover-poster.png)
 
 一款单人 3D 计时赛车游戏。沿约 1.13 km 的云端赛道依次穿过 6 个检查点，飞跃断桥，驶过竖直环道，挑战自己的最佳成绩与幽灵车。
@@ -45,7 +47,7 @@ npm run build
 npx tsx tools/drive-test.ts
 ```
 
-`npm run build` 会烘焙赛道、类型检查、构建 `dist/`，并生成星匣本地预览需要的根目录 `index.html`。有星匣 CLI 和创作者权限时，运行 `star-letter dev --open` 打开平台预览；上传更新使用 `star-letter publish --draft`。当前星匣游戏 #8537 保持草稿。
+`npm run build` 会烘焙赛道、类型检查、构建 `dist/`，并生成星匣本地预览需要的根目录 `index.html`。有星匣 CLI 和创作者权限时，运行 `star-letter dev --open` 打开平台预览；上传更新使用 `star-letter publish --draft`。星匣游戏 #8537 已由创作者发布；本次改动上传为更新草稿，正式更新由创作者发布。
 
 获取可编辑的 Blender 场景和原始导出模型：
 
@@ -66,7 +68,7 @@ git lfs pull
 | `assets/blender/` | 可编辑场景和模型源文件（Git LFS） |
 | `tools/` | 构建、音频转换与验证脚本 |
 
-当前赛道规则 `skyline-v1.1.0-dev`、物理规则 `raycast-120-v4-dev` 对应独立的预览榜 `skyline_v4_time`，避免与旧规则的成绩混排。六道检查点按路线顺序设置；漏点后冲线会显示练习完赛，不计排行榜。排行榜仅作展示；正式发布前的验收范围见 [ACCEPTANCE.md](ACCEPTANCE.md) 和 [CDR.md](CDR.md)。
+当前赛道规则 `skyline-v1.1.0-dev`、物理规则 `raycast-120-v5-dev` 对应独立的预览榜 `skyline_v5_time`，避免与旧规则的成绩混排。六道检查点按路线顺序设置；漏点后冲线会显示练习完赛，不计排行榜。排行榜仅作展示；正式发布前的验收范围见 [ACCEPTANCE.md](ACCEPTANCE.md) 和 [CDR.md](CDR.md)。
 
 ## 素材来源
 
@@ -78,4 +80,10 @@ git lfs pull
 
 `tools/blender-expansion.py` 统一模型尺寸和朝向、分离车轮、制作中文标牌，并搭建带窗格、阳台与穹顶的观测城。`tools/optimize-expansion.mjs` 输出 WebP 贴图 GLB、LOD 与运行时清单。可编辑 `.blend` 与原始导出在 Git LFS 中；两幅背景图经压缩后保存在 `public/assets/sky-*.webp`。
 
-最近回归：29 项自动测试通过；左右护栏 90/180/252 km/h 擦碰不弹飞；30/60/120 FPS 的完整赛道模拟均为 37.086 秒。
+最近回归：31 项自动测试通过；左右护栏 90/180/252 km/h 擦碰不弹飞；30/60/120 FPS 的完整赛道模拟均为 39.904 秒。
+
+## 中英双语与驾驶修正
+
+首页右上角可以切换 English / 中文；设置也有语言选项，选择保存在本机和云端设置中。菜单、HUD、结算、排行榜、操作说明与减速牌均可切换。
+
+刹车漂移进一步减弱，保留轻微转向增益。观测城移出弯道；构建前会按运行时模型的实际包围盒与摆放，检查整个赛道的行车空间，避免远景建筑遮住另一段路。布局修正保存于 `assets/source/layout-overrides.json`。

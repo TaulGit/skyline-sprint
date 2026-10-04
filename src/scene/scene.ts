@@ -7,6 +7,7 @@ import {railMesh} from '../game/rails';
 import {TireTrails} from './tire-trails';
 export class Scene{
  renderer:T.WebGLRenderer;scene=new T.Scene();camera=new T.PerspectiveCamera(62,1,.1,1800);car=new T.Group();ghost=new T.Group();wheels:T.Object3D[]=[];carMaterials:T.MeshStandardMaterial[]=[];decorations:T.Object3D[]=[];lowQuality=false;cameraUp=new T.Vector3(0,1,0);target=new T.Vector3();gates:T.Group[]=[];bodyMaterial=new T.MeshStandardMaterial({color:0x38d9ec,metalness:.45,roughness:.32});
+ signTexture=new T.CanvasTexture(document.createElement('canvas'));
  carModels=new Map<string,T.Group>();selectedCar='';
  cameraObstacles:T.Object3D[]=[];cameraRay=new T.Raycaster();fallbackScenery=new T.Group();sky=createSky();trails=new TireTrails();
  constructor(public track:Track,canvas:HTMLCanvasElement){
@@ -24,7 +25,7 @@ export class Scene{
   let seed=71;const random=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296};
   for(let i=0;i<110;i++){const sample=track.samples[Math.floor(random()*track.samples.length)],side=random()>.5?1:-1,p=vec(sample.p).addScaledVector(vec(sample.r),side*(24+random()*80));p.y-=12+random()*55;const size=6+random()*17;rocks.setMatrixAt(i,new T.Matrix4().compose(p,new T.Quaternion().setFromEuler(new T.Euler(random(),random(),random())),new T.Vector3(size,size*.7,size)));if(i<70)crystals.setMatrixAt(i,new T.Matrix4().compose(p.clone().add(new T.Vector3(0,size*.5,0)),new T.Quaternion(),new T.Vector3(size*.2,size*.3,size*.2)));}this.fallbackScenery.add(rocks,crystals);
   const cloud=new T.Mesh(new T.PlaneGeometry(2600,2600),new T.MeshBasicMaterial({color:0xd5e5eb,transparent:true,opacity:.24,depthWrite:false}));cloud.rotation.x=-Math.PI/2;cloud.position.y=-18;this.scene.add(cloud);
-  this.createCar(this.car,false);this.createCar(this.ghost,true);this.scene.add(this.car,this.ghost);this.ghost.visible=false;this.camera.position.set(-22,43,-27);this.target.copy(vec(track.spawn.p));this.resize();
+  this.setLanguage('zh');this.createCar(this.car,false);this.createCar(this.ghost,true);this.scene.add(this.car,this.ghost);this.ghost.visible=false;this.camera.position.set(-22,43,-27);this.target.copy(vec(track.spawn.p));this.resize();
  }
  createCar(group:T.Group,ghost:boolean){const mat=ghost?new T.MeshStandardMaterial({color:0x95f6ff,transparent:true,opacity:.28,depthWrite:false}):this.bodyMaterial;
   const shell=new T.Mesh(new T.BoxGeometry(1.72,.48,3.5),mat);shell.position.y=.04;group.add(shell);const cabin=new T.Mesh(new T.BoxGeometry(1.25,.42,1.4),ghost?mat:new T.MeshStandardMaterial({color:0x102b40,metalness:.65,roughness:.15}));cabin.position.set(0,.46,-.2);group.add(cabin);const wing=new T.Mesh(new T.BoxGeometry(2,.12,.5),mat);wing.position.set(0,.5,-1.55);group.add(wing);
@@ -38,10 +39,13 @@ export class Scene{
   for(const choice of manifest.cars??[{id:'car',file:manifest.car}]){const loaded=await loader.loadAsync(`./assets/${choice.file}`);this.carModels.set(choice.id,loaded.scene);}
   this.setCar('car');
   for(const asset of manifest.decorations){const [high,low]=await Promise.all([loader.loadAsync(`./assets/${asset.file}`),loader.loadAsync(`./assets/${asset.file.replace('.glb','-low.glb')}`)]);
-   for(const index of asset.samples){const s=this.track.samples[index],lod=new T.LOD();lod.addLevel(high.scene.clone(),0);lod.addLevel(low.scene.clone(),80);lod.position.copy(vec(s.p).addScaledVector(vec(s.r),asset.offset));lod.position.y+=(asset.height??0)-(asset.name==='floating-rock'?asset.scale*.85:0);if(asset.align)lod.quaternion.copy(quat(s.q));lod.rotateY(asset.yaw??0);lod.userData.distant=!!asset.distant;lod.scale.setScalar(asset.scale);this.scene.add(lod);this.decorations.push(lod);
-    if(asset.name==='warning-sign'){const arm=new T.Mesh(new T.BoxGeometry(3.7,.22,.3),new T.MeshStandardMaterial({color:0x617e89,metalness:.5,roughness:.6}));arm.position.copy(vec(s.p).addScaledVector(vec(s.r),6.9).addScaledVector(vec(s.u),-.12));arm.quaternion.copy(quat(s.q));this.scene.add(arm);}
+   for(const index of asset.samples){const s=this.track.samples[index],lod=new T.LOD();lod.addLevel(high.scene.clone(),0);lod.addLevel(low.scene.clone(),80);lod.position.copy(vec(s.p).addScaledVector(vec(s.r),asset.offset));lod.position.y+=(asset.height??0)-(asset.name==='floating-rock'?asset.scale*.85:0);if(asset.positions?.[String(index)])lod.position.copy(vec(asset.positions[String(index)]));if(asset.align)lod.quaternion.copy(quat(s.q));lod.rotateY(asset.yaw??0);lod.userData.distant=!!asset.distant;lod.scale.setScalar(asset.scale);this.scene.add(lod);this.decorations.push(lod);
+    if(asset.name==='warning-sign'){const label=new T.Mesh(new T.PlaneGeometry(.76,.27),new T.MeshBasicMaterial({map:this.signTexture}));label.position.set(0,.66,.125);lod.add(label);const arm=new T.Mesh(new T.BoxGeometry(3.7,.22,.3),new T.MeshStandardMaterial({color:0x617e89,metalness:.5,roughness:.6}));arm.position.copy(vec(s.p).addScaledVector(vec(s.r),6.9).addScaledVector(vec(s.u),-.12));arm.quaternion.copy(quat(s.q));this.scene.add(arm);}
 }
   }
+ }
+ setLanguage(language:'zh'|'en'){
+  const canvas=this.signTexture.image as HTMLCanvasElement;canvas.width=768;canvas.height=256;const context=canvas.getContext('2d')!;context.fillStyle='#efba42';context.fillRect(0,0,768,256);context.fillStyle='#172736';context.textAlign='center';context.textBaseline='middle';context.font=language==='en'?'bold 94px Arial':'bold 120px Microsoft YaHei, sans-serif';context.fillText(language==='en'?'SLOW DOWN':'请减速',384,132);this.signTexture.colorSpace=T.SRGBColorSpace;this.signTexture.needsUpdate=true;
  }
  setCar(id:string){
   if(this.selectedCar===id||!this.carModels.has(id))return;

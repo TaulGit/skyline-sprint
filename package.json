@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "bake": "tsx tools/bake-track.ts",
-    "build": "npm run bake && tsc && vite build && node tools/sync-preview.mjs",
+    "build": "npm run bake && node tools/check-model-clearance.mjs && tsc && vite build && node tools/sync-preview.mjs",
     "test": "vitest run",
     "preview": "vite preview --host 127.0.0.1"
   },

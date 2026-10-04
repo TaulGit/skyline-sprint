@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-04T10:07:34.582Z",
+  "checkedAt": "2026-10-04T14:19:08.909Z",
   "gameId": 8537,
   "mode": "relative URLs without query parameters",
   "files": [
@@ -116,27 +116,27 @@
       "matchesLocal": true
     },
     {
-      "path": "assets/index-Cg_cAcTm.js",
+      "path": "assets/index-BiE80Mqg.js",
       "status": 200,
       "mime": "text/javascript;charset=UTF-8",
-      "bytes": 4989618,
-      "sha256": "6fa7c65998fe9c350a16a36a3458ba69bbbbcbc9b0c58cd4df3e73ffa29db0ae",
+      "bytes": 4993515,
+      "sha256": "40f611b8732f36e23ca426aefe96e886aa920087dbe08d1039764493794d9e38",
       "matchesLocal": true
     },
     {
-      "path": "assets/index-CwMHZrW6.css",
+      "path": "assets/index-inQDi2cL.css",
       "status": 200,
       "mime": "text/css;charset=UTF-8",
-      "bytes": 7120,
-      "sha256": "69ccae1fa13a2044271dc41186ebf42552340367491e6510ac9a8f1b11dcf3cc",
+      "bytes": 7583,
+      "sha256": "6c1c6fd8d0818b45c04af161b3946af3ff2cb198c7f1b3e6d9756b7237a7342b",
       "matchesLocal": true
     },
     {
       "path": "assets/models.json",
       "status": 200,
       "mime": "application/json;charset=UTF-8",
-      "bytes": 2692,
-      "sha256": "6fc4165031bdbc13c3ccfc0cc86dc63afa2efe3c0b8503091b9c67fbf1b1d253",
+      "bytes": 4348,
+      "sha256": "abdfc289cecb57939dcb96e61d17f79449312b331ed999abd631007720f86173",
       "matchesLocal": true
     },
     {
@@ -188,6 +188,14 @@
       "matchesLocal": true
     },
     {
+      "path": "assets/models/car-card.webp",
+      "status": 200,
+      "mime": "image/webp;charset=UTF-8",
+      "bytes": 13166,
+      "sha256": "4079bf9a7310051a29af2ad3a8cba69999d90d48d716e7d78fb8b2f3c9c76a30",
+      "matchesLocal": true
+    },
+    {
       "path": "assets/models/car-low.glb",
       "status": 200,
       "mime": "application/octet-stream;charset=UTF-8",
@@ -233,6 +241,46 @@
       "mime": "application/octet-stream;charset=UTF-8",
       "bytes": 439568,
       "sha256": "64660f86dd289f3c678cd64ea1fc2cff13eaf6037c2742e9b2b89dc5f0f918c5",
+      "matchesLocal": true
+    },
+    {
+      "path": "assets/models/distant-observatory-low.glb",
+      "status": 200,
+      "mime": "application/octet-stream;charset=UTF-8",
+      "bytes": 1570944,
+      "sha256": "9f54894dd428034accfcc19f3f0d147195a68c76437daf6b4c3d1dcd6e02f31b",
+      "matchesLocal": true
+    },
+    {
+      "path": "assets/models/distant-observatory.glb",
+      "status": 200,
+      "mime": "application/octet-stream;charset=UTF-8",
+      "bytes": 1570944,
+      "sha256": "9f54894dd428034accfcc19f3f0d147195a68c76437daf6b4c3d1dcd6e02f31b",
+      "matchesLocal": true
+    },
+    {
+      "path": "assets/models/endurance-coupe-card.webp",
+      "status": 200,
+      "mime": "image/webp;charset=UTF-8",
+      "bytes": 14788,
+      "sha256": "e8cd2beb2669929a22615c3475a670569774c9e960f0425e4f93c3d06204372b",
+      "matchesLocal": true
+    },
+    {
+      "path": "assets/models/endurance-coupe-low.glb",
+      "status": 200,
+      "mime": "application/octet-stream;charset=UTF-8",
+      "bytes": 618596,
+      "sha256": "f64d581af4246d20020a7a1fad88f675178dfdfac17484520cfd0314e6d91e3f",
+      "matchesLocal": true
+    },
+    {
+      "path": "assets/models/endurance-coupe.glb",
+      "status": 200,
+      "mime": "application/octet-stream;charset=UTF-8",
+      "bytes": 779928,
+      "sha256": "d0b5e4cd8ba034873b95eb4cc7476873834ab85529af92808426af06e0d9570e",
       "matchesLocal": true
     },
     {
@@ -316,6 +364,94 @@
       "matchesLocal": true
     },
     {
+      "path": "assets/models/rally-buggy-card.webp",
+      "status": 200,
+      "mime": "image/webp;charset=UTF-8",
+      "bytes": 18808,
+      "sha256": "0a10346d5bc78688c13ddf8b46ad8d297c61ebb1fdaf59a1916e685a01f20fe1",
+      "matchesLocal": true
+    },
+    {
+      "path": "assets/models/rally-buggy-low.glb",
+      "status": 200,
+      "mime": "application/octet-stream;charset=UTF-8",
+      "bytes": 897872,
+      "sha256": "2edb884e15a289f3a3fff8d4b587b7c89c7be568a0ac38afc798da4010d3f462",
+      "matchesLocal": true
+    },
+    {
+      "path": "assets/models/rally-buggy.glb",
+      "status": 200,
+      "mime": "application/octet-stream;charset=UTF-8",
+      "bytes": 1000656,
+      "sha256": "d7a8a4fec76eb2d375723eedc9652a436110ffedba3b11e6bb37c128290b1e4a",
+      "matchesLocal": true
+    },
+    {
+      "path": "assets/models/safety-barrier-low.glb",
+      "status": 200,
+      "mime": "application/octet-stream;charset=UTF-8",
+      "bytes": 215180,
+      "sha256": "536ebe558bfb155e50dde52f1815039946b621250009640c64078d7ad645f1f0",
+      "matchesLocal": true
+    },
+    {
+      "path": "assets/models/safety-barrier.glb",
+      "status": 200,
+      "mime": "application/octet-stream;charset=UTF-8",
+      "bytes": 299080,
+      "sha256": "095098fe17885a54ba7691674c9767847471aa31e710a86808caa38818061f00",
+      "matchesLocal": true
+    },
+    {
+      "path": "assets/models/sky-airship-low.glb",
+      "status": 200,
+      "mime": "application/octet-stream;charset=UTF-8",
+      "bytes": 688884,
+      "sha256": "8e90a84403c7c289f52f644a72fe7593f693dd1b3c0acd362d37248481c39b2a",
+      "matchesLocal": true
+    },
+    {
+      "path": "assets/models/sky-airship.glb",
+      "status": 200,
+      "mime": "application/octet-stream;charset=UTF-8",
+      "bytes": 855996,
+      "sha256": "4a988781e3b00e07fe217cc478e40723d89174675744af3e5e73c51b4db16cf5",
+      "matchesLocal": true
+    },
+    {
+      "path": "assets/models/sky-citadel-low.glb",
+      "status": 200,
+      "mime": "application/octet-stream;charset=UTF-8",
+      "bytes": 1240712,
+      "sha256": "c4ad2d9d73519476df5ce14ea619aa9f695201588aa8eff95fe8ae04db5b395f",
+      "matchesLocal": true
+    },
+    {
+      "path": "assets/models/sky-citadel.glb",
+      "status": 200,
+      "mime": "application/octet-stream;charset=UTF-8",
+      "bytes": 1435372,
+      "sha256": "5a4cbb0af1f4e73375b3805e8cdd4caa5303b32b6e29fda41538c9daf186f5a3",
+      "matchesLocal": true
+    },
+    {
+      "path": "assets/models/warning-sign-low.glb",
+      "status": 200,
+      "mime": "application/octet-stream;charset=UTF-8",
+      "bytes": 354980,
+      "sha256": "453b525897aae05f9c06742af3b3ebf1609438bd287213ca784c33cb2b28560c",
+      "matchesLocal": true
+    },
+    {
+      "path": "assets/models/warning-sign.glb",
+      "status": 200,
+      "mime": "application/octet-stream;charset=UTF-8",
+      "bytes": 354980,
+      "sha256": "453b525897aae05f9c06742af3b3ebf1609438bd287213ca784c33cb2b28560c",
+      "matchesLocal": true
+    },
+    {
       "path": "assets/models/watchtower-low.glb",
       "status": 200,
       "mime": "application/octet-stream;charset=UTF-8",
@@ -332,6 +468,22 @@
       "matchesLocal": true
     },
     {
+      "path": "assets/sky-city.webp",
+      "status": 200,
+      "mime": "image/webp;charset=UTF-8",
+      "bytes": 147330,
+      "sha256": "3e53de7f9c62a611ed581d5ac6fd4c0f9452bb3d3d23802e39c05d6d048de3a9",
+      "matchesLocal": true
+    },
+    {
+      "path": "assets/sky-mountains.webp",
+      "status": 200,
+      "mime": "image/webp;charset=UTF-8",
+      "bytes": 80166,
+      "sha256": "2dd017eb38496dfb161b7b288e64f399dce7960b559d5a1fbf34b0792a27241a",
+      "matchesLocal": true
+    },
+    {
       "path": "assets/track.glb",
       "status": 200,
       "mime": "application/octet-stream;charset=UTF-8",
@@ -344,15 +496,15 @@
       "status": 200,
       "mime": "application/json;charset=UTF-8",
       "bytes": 307909,
-      "sha256": "4b66c97eb55b9bc8bcb0cecfe9458eb4c63c890053b1fcbc6ce993de4677ece5",
+      "sha256": "e15322d9f7cf5b0e4ea02a7377657eda6ae18030cff9ed09c644578b1758f009",
       "matchesLocal": true
     },
     {
       "path": "index.html",
       "status": 200,
       "mime": "text/html;charset=UTF-8",
-      "bytes": 557,
-      "sha256": "be6d82c14b136ef61c07b7a507546c257339b61e6c51374cbdb78a177ce05e1a",
+      "bytes": 585,
+      "sha256": "83756ab0d53b42e0254ea20a6fbebe5c90fc45897e1c638aaf0f2c7d45942cee",
       "matchesLocal": true
     }
   ]

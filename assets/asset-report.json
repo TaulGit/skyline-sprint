@@ -1,0 +1,86 @@
+[
+  {
+    "name": "car",
+    "triangles": 4970,
+    "lodTriangles": 3321,
+    "bytes": 853608,
+    "lodBytes": 792228
+  },
+  {
+    "name": "crystal-island",
+    "triangles": 5184,
+    "lodTriangles": 2842,
+    "bytes": 439568,
+    "lodBytes": 357104
+  },
+  {
+    "name": "energy-core",
+    "triangles": 8277,
+    "lodTriangles": 5116,
+    "bytes": 638208,
+    "lodBytes": 523300
+  },
+  {
+    "name": "finish-tower",
+    "triangles": 7564,
+    "lodTriangles": 3402,
+    "bytes": 551872,
+    "lodBytes": 411992
+  },
+  {
+    "name": "floating-rock",
+    "triangles": 2777,
+    "lodTriangles": 1801,
+    "bytes": 221484,
+    "lodBytes": 185420
+  },
+  {
+    "name": "crystal-cluster",
+    "triangles": 2891,
+    "lodTriangles": 1299,
+    "bytes": 192744,
+    "lodBytes": 152024
+  },
+  {
+    "name": "watchtower",
+    "triangles": 2963,
+    "lodTriangles": 1333,
+    "bytes": 176496,
+    "lodBytes": 137556
+  },
+  {
+    "name": "energy-crate",
+    "triangles": 2810,
+    "lodTriangles": 2067,
+    "bytes": 329496,
+    "lodBytes": 301744
+  },
+  {
+    "name": "flag",
+    "triangles": 2753,
+    "lodTriangles": 1237,
+    "bytes": 138000,
+    "lodBytes": 90148
+  },
+  {
+    "name": "antenna",
+    "triangles": 2902,
+    "lodTriangles": 1305,
+    "bytes": 146172,
+    "lodBytes": 95748
+  },
+  {
+    "name": "beacon",
+    "triangles": 2923,
+    "lodTriangles": 1315,
+    "bytes": 186488,
+    "lodBytes": 147272
+  },
+  {
+    "name": "arch",
+    "triangles": 2823,
+    "lodTriangles": 2015,
+    "bytes": 307772,
+    "lodBytes": 278092
+  }
+]

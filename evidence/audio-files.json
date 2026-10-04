@@ -1,0 +1,48 @@
+[
+  {
+    "file": "public/assets/audio/engine.wav",
+    "source": "assets/source/audio/engine.ogg",
+    "duration": 8.0,
+    "sampleRate": 44100
+  },
+  {
+    "file": "public/assets/audio/skid.wav",
+    "source": "assets/source/audio/skid.ogg",
+    "duration": 3.5070625,
+    "sampleRate": 48000
+  },
+  {
+    "file": "public/assets/audio/impact.wav",
+    "source": "assets/source/audio/impact.ogg",
+    "duration": 0.6536734693877551,
+    "sampleRate": 44100
+  },
+  {
+    "file": "public/assets/audio/click.wav",
+    "source": "assets/source/audio/interface/Audio/click_003.ogg",
+    "duration": 0.010022675736961452,
+    "sampleRate": 44100
+  },
+  {
+    "file": "public/assets/audio/checkpoint.wav",
+    "source": "assets/source/audio/interface/Audio/confirmation_001.ogg",
+    "duration": 0.28984126984126984,
+    "sampleRate": 44100
+  },
+  {
+    "file": "public/assets/audio/finish.wav",
+    "source": "assets/source/audio/interface/Audio/confirmation_004.ogg",
+    "duration": 0.4904081632653061,
+    "sampleRate": 44100
+  },
+  {
+    "file": "public/assets/audio/sky-flight-1.mp3",
+    "duration": 219.2135,
+    "sampleRate": 48000
+  },
+  {
+    "file": "public/assets/audio/sky-flight-2.mp3",
+    "duration": 207.8935,
+    "sampleRate": 48000
+  }
+]

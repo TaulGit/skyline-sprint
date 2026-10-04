@@ -1,0 +1,12 @@
+import {NodeIO} from '@gltf-transform/core';
+import {ALL_EXTENSIONS} from '@gltf-transform/extensions';
+import {dedup,prune,weld,flatten,join,textureCompress} from '@gltf-transform/functions';
+import sharp from 'sharp';
+import {writeFileSync,statSync} from 'node:fs';
+const io=new NodeIO().registerExtensions(ALL_EXTENSIONS);
+const doc=await io.read('assets/blender/exports/environment.glb');
+await doc.transform(dedup(),flatten(),join(),weld(),prune(),textureCompress({encoder:sharp,resize:[1024,1024],targetFormat:'webp',quality:84}));
+await io.write('public/assets/environment.glb',doc);
+const meshes=doc.getRoot().listMeshes(),primitives=meshes.flatMap(m=>m.listPrimitives());
+const report={meshes:meshes.length,primitives:primitives.length,triangles:primitives.reduce((n,p)=>n+(p.getIndices()?.getCount()??p.getAttribute('POSITION').getCount())/3,0),bytes:statSync('public/assets/environment.glb').size};
+writeFileSync('assets/environment-report.json',JSON.stringify(report,null,2));console.log(report);

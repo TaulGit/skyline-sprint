@@ -1,0 +1,34 @@
+{
+  "gameId": 8537,
+  "title": "云端极速 Skyline Sprint",
+  "tags": [
+    "赛车",
+    "计时挑战",
+    "排行榜"
+  ],
+  "gameCategory": [
+    10005
+  ],
+  "summary": "在原创云端赛道追逐最佳幽灵，挑战 S 弯、跨岛跳台与竖直能源环。",
+  "cover": "./cover-poster.png",
+  "gameFile": "./dist",
+  "gameType": 0,
+  "screen": 0,
+  "priceType": 0,
+  "visibility": 1,
+  "capabilityDeclaration": {
+    "schemaVersion": 1,
+    "capabilities": {
+      "storage": {
+        "enabled": true
+      },
+      "leaderboard": {
+        "enabled": true,
+        "boards": [
+          "skyline_v1_time"
+        ]
+      }
+    }
+  },
+  "controls": "WASD/方向键驾驶；Space手刹；R/Enter重开；C练习复位；Esc设置；支持触屏。"
+}

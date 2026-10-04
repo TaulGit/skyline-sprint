@@ -1,0 +1,29 @@
+{
+  "task_id": "cf34caaf-18e2-4d8c-8cf2-861d14d6d998",
+  "type": "text_to_model",
+  "status": "success",
+  "input": {
+    "pbr": true,
+    "prompt": "Original stylized low polygon sky racing world, clean ivory and dark slate surfaces with cyan crystal and small orange accents, strong simple silhouette, isolated single game prop, no text, no logos. A small stylized satellite antenna relay mast",
+    "texture": true,
+    "export_uv": true,
+    "face_limit": 3000,
+    "model_seed": 318,
+    "model_version": "P1-20260311",
+    "texture_alignment": "geometry"
+  },
+  "output_fields": [
+    "model_url",
+    "rendered_image_url",
+    "generated_image_url"
+  ],
+  "credits_consumed": 40,
+  "created_at": "2026-10-03T14:00:49.890473Z",
+  "completed_at": "2026-10-03T14:03:06.933358Z",
+  "files": [
+    "model.glb",
+    "rendered_image.webp",
+    "generated_image.jpeg",
+    "preview.png"
+  ]
+}

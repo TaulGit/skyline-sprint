@@ -1,0 +1,30 @@
+{
+  "task_id": "2fd366c5-2f9e-4f5f-a769-5579b1a77a6b",
+  "type": "text_to_model",
+  "status": "success",
+  "input": {
+    "pbr": true,
+    "prompt": "Original stylized futuristic compact racing coupe, pearl white body cyan luminous trim orange accents, low wide wedge silhouette, four exposed black wheels, no text no logos, game ready",
+    "texture": true,
+    "export_uv": true,
+    "face_limit": 10000,
+    "model_seed": 101,
+    "model_version": "P2-20260801",
+    "texture_quality": "detailed",
+    "texture_alignment": "geometry"
+  },
+  "output_fields": [
+    "model_url",
+    "rendered_image_url",
+    "generated_image_url"
+  ],
+  "credits_consumed": 120,
+  "created_at": "2026-10-03T13:24:52.363909Z",
+  "completed_at": "2026-10-03T13:27:01.581109Z",
+  "files": [
+    "model.glb",
+    "rendered_image.webp",
+    "generated_image.jpeg",
+    "preview.png"
+  ]
+}

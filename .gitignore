@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.vite/
+*.log
+.star-letter/
+game-detail.json
+*.blend1
+assets/source/**/model.*
+assets/source/**/texture*
+.tripo/
+.env
+.env.*
+tools/update-ui-temp.py
+assets/source/audio/impact/
+assets/source/audio/*.zip

@@ -1,0 +1,232 @@
+[
+  {
+    "name": "car-b",
+    "model": "tripo-p2",
+    "prompt": "An original futuristic open wheel single seat sprint race car, angular arrow shaped nose, cyan white panels, four black wheels, rear wing, simple faceted toy-like design",
+    "seed": 102,
+    "params": [
+      "face_limit=10000",
+      "texture_quality=detailed"
+    ]
+  },
+  {
+    "name": "car-c",
+    "model": "tripo-p2",
+    "prompt": "An original compact rally prototype racing coupe, rounded low canopy, orange white and cyan geometric panels, four black wheels, bold stylized silhouette",
+    "seed": 103,
+    "params": [
+      "face_limit=10000",
+      "texture_quality=detailed"
+    ]
+  },
+  {
+    "name": "crystal-island-1",
+    "model": "tripo-v3.1",
+    "prompt": "Original stylized low polygon sky racing world, clean ivory and dark slate surfaces with cyan crystal and small orange accents, strong simple silhouette, isolated single game prop, no text, no logos. A floating rock island crowned by a cluster of enormous translucent cyan crystals, pale stone platform",
+    "seed": 202,
+    "params": [
+      "smart_low_poly=true",
+      "face_limit=6500",
+      "texture_quality=detailed"
+    ]
+  },
+  {
+    "name": "crystal-island-2",
+    "model": "tripo-v3.1",
+    "prompt": "Original stylized low polygon sky racing world, clean ivory and dark slate surfaces with cyan crystal and small orange accents, strong simple silhouette, isolated single game prop, no text, no logos. A floating rock island crowned by a cluster of enormous translucent cyan crystals, pale stone platform",
+    "seed": 203,
+    "params": [
+      "smart_low_poly=true",
+      "face_limit=6500",
+      "texture_quality=detailed"
+    ]
+  },
+  {
+    "name": "energy-core-1",
+    "model": "tripo-v3.1",
+    "prompt": "Original stylized low polygon sky racing world, clean ivory and dark slate surfaces with cyan crystal and small orange accents, strong simple silhouette, isolated single game prop, no text, no logos. A futuristic vertical circular energy portal monument, cyan luminous core suspended in a chunky ivory mechanical frame",
+    "seed": 204,
+    "params": [
+      "smart_low_poly=true",
+      "face_limit=6500",
+      "texture_quality=detailed"
+    ]
+  },
+  {
+    "name": "energy-core-2",
+    "model": "tripo-v3.1",
+    "prompt": "Original stylized low polygon sky racing world, clean ivory and dark slate surfaces with cyan crystal and small orange accents, strong simple silhouette, isolated single game prop, no text, no logos. A futuristic vertical circular energy portal monument, cyan luminous core suspended in a chunky ivory mechanical frame",
+    "seed": 205,
+    "params": [
+      "smart_low_poly=true",
+      "face_limit=6500",
+      "texture_quality=detailed"
+    ]
+  },
+  {
+    "name": "finish-tower-1",
+    "model": "tripo-v3.1",
+    "prompt": "Original stylized low polygon sky racing world, clean ivory and dark slate surfaces with cyan crystal and small orange accents, strong simple silhouette, isolated single game prop, no text, no logos. A tall futuristic finish line observation tower, orange viewing pod and white angular supports",
+    "seed": 206,
+    "params": [
+      "smart_low_poly=true",
+      "face_limit=6500",
+      "texture_quality=detailed"
+    ]
+  },
+  {
+    "name": "finish-tower-2",
+    "model": "tripo-v3.1",
+    "prompt": "Original stylized low polygon sky racing world, clean ivory and dark slate surfaces with cyan crystal and small orange accents, strong simple silhouette, isolated single game prop, no text, no logos. A tall futuristic finish line observation tower, orange viewing pod and white angular supports",
+    "seed": 207,
+    "params": [
+      "smart_low_poly=true",
+      "face_limit=6500",
+      "texture_quality=detailed"
+    ]
+  },
+  {
+    "name": "floating-rock-1",
+    "model": "tripo-p1",
+    "prompt": "Original stylized low polygon sky racing world, clean ivory and dark slate surfaces with cyan crystal and small orange accents, strong simple silhouette, isolated single game prop, no text, no logos. A broad floating basalt rock with a flat grassy top and sharp tapered underside",
+    "seed": 308,
+    "params": [
+      "face_limit=3000"
+    ]
+  },
+  {
+    "name": "floating-rock-2",
+    "model": "tripo-p1",
+    "prompt": "Original stylized low polygon sky racing world, clean ivory and dark slate surfaces with cyan crystal and small orange accents, strong simple silhouette, isolated single game prop, no text, no logos. A broad floating basalt rock with a flat grassy top and sharp tapered underside",
+    "seed": 309,
+    "params": [
+      "face_limit=3000"
+    ]
+  },
+  {
+    "name": "crystal-cluster-1",
+    "model": "tripo-p1",
+    "prompt": "Original stylized low polygon sky racing world, clean ivory and dark slate surfaces with cyan crystal and small orange accents, strong simple silhouette, isolated single game prop, no text, no logos. A cluster of five angular cyan crystals on a small dark stone base",
+    "seed": 310,
+    "params": [
+      "face_limit=3000"
+    ]
+  },
+  {
+    "name": "crystal-cluster-2",
+    "model": "tripo-p1",
+    "prompt": "Original stylized low polygon sky racing world, clean ivory and dark slate surfaces with cyan crystal and small orange accents, strong simple silhouette, isolated single game prop, no text, no logos. A cluster of five angular cyan crystals on a small dark stone base",
+    "seed": 311,
+    "params": [
+      "face_limit=3000"
+    ]
+  },
+  {
+    "name": "watchtower-1",
+    "model": "tripo-p1",
+    "prompt": "Original stylized low polygon sky racing world, clean ivory and dark slate surfaces with cyan crystal and small orange accents, strong simple silhouette, isolated single game prop, no text, no logos. A small futuristic track marshal watchtower on a single pylon",
+    "seed": 312,
+    "params": [
+      "face_limit=3000"
+    ]
+  },
+  {
+    "name": "watchtower-2",
+    "model": "tripo-p1",
+    "prompt": "Original stylized low polygon sky racing world, clean ivory and dark slate surfaces with cyan crystal and small orange accents, strong simple silhouette, isolated single game prop, no text, no logos. A small futuristic track marshal watchtower on a single pylon",
+    "seed": 313,
+    "params": [
+      "face_limit=3000"
+    ]
+  },
+  {
+    "name": "energy-crate-1",
+    "model": "tripo-p1",
+    "prompt": "Original stylized low polygon sky racing world, clean ivory and dark slate surfaces with cyan crystal and small orange accents, strong simple silhouette, isolated single game prop, no text, no logos. A compact cube energy supply crate with glowing cyan slits",
+    "seed": 314,
+    "params": [
+      "face_limit=3000"
+    ]
+  },
+  {
+    "name": "energy-crate-2",
+    "model": "tripo-p1",
+    "prompt": "Original stylized low polygon sky racing world, clean ivory and dark slate surfaces with cyan crystal and small orange accents, strong simple silhouette, isolated single game prop, no text, no logos. A compact cube energy supply crate with glowing cyan slits",
+    "seed": 315,
+    "params": [
+      "face_limit=3000"
+    ]
+  },
+  {
+    "name": "flag-1",
+    "model": "tripo-p1",
+    "prompt": "Original stylized low polygon sky racing world, clean ivory and dark slate surfaces with cyan crystal and small orange accents, strong simple silhouette, isolated single game prop, no text, no logos. A rigid triangular cyan racing flag on a freestanding white pedestal",
+    "seed": 316,
+    "params": [
+      "face_limit=3000"
+    ]
+  },
+  {
+    "name": "flag-2",
+    "model": "tripo-p1",
+    "prompt": "Original stylized low polygon sky racing world, clean ivory and dark slate surfaces with cyan crystal and small orange accents, strong simple silhouette, isolated single game prop, no text, no logos. A rigid triangular cyan racing flag on a freestanding white pedestal",
+    "seed": 317,
+    "params": [
+      "face_limit=3000"
+    ]
+  },
+  {
+    "name": "antenna-1",
+    "model": "tripo-p1",
+    "prompt": "Original stylized low polygon sky racing world, clean ivory and dark slate surfaces with cyan crystal and small orange accents, strong simple silhouette, isolated single game prop, no text, no logos. A small stylized satellite antenna relay mast",
+    "seed": 318,
+    "params": [
+      "face_limit=3000"
+    ]
+  },
+  {
+    "name": "antenna-2",
+    "model": "tripo-p1",
+    "prompt": "Original stylized low polygon sky racing world, clean ivory and dark slate surfaces with cyan crystal and small orange accents, strong simple silhouette, isolated single game prop, no text, no logos. A small stylized satellite antenna relay mast",
+    "seed": 319,
+    "params": [
+      "face_limit=3000"
+    ]
+  },
+  {
+    "name": "beacon-1",
+    "model": "tripo-p1",
+    "prompt": "Original stylized low polygon sky racing world, clean ivory and dark slate surfaces with cyan crystal and small orange accents, strong simple silhouette, isolated single game prop, no text, no logos. An orange futuristic hazard beacon bollard",
+    "seed": 320,
+    "params": [
+      "face_limit=3000"
+    ]
+  },
+  {
+    "name": "beacon-2",
+    "model": "tripo-p1",
+    "prompt": "Original stylized low polygon sky racing world, clean ivory and dark slate surfaces with cyan crystal and small orange accents, strong simple silhouette, isolated single game prop, no text, no logos. An orange futuristic hazard beacon bollard",
+    "seed": 321,
+    "params": [
+      "face_limit=3000"
+    ]
+  },
+  {
+    "name": "arch-1",
+    "model": "tripo-p1",
+    "prompt": "Original stylized low polygon sky racing world, clean ivory and dark slate surfaces with cyan crystal and small orange accents, strong simple silhouette, isolated single game prop, no text, no logos. A decorative wide ivory open racing arch with cyan light strips",
+    "seed": 322,
+    "params": [
+      "face_limit=3000"
+    ]
+  },
+  {
+    "name": "arch-2",
+    "model": "tripo-p1",
+    "prompt": "Original stylized low polygon sky racing world, clean ivory and dark slate surfaces with cyan crystal and small orange accents, strong simple silhouette, isolated single game prop, no text, no logos. A decorative wide ivory open racing arch with cyan light strips",
+    "seed": 323,
+    "params": [
+      "face_limit=3000"
+    ]
+  }
+]

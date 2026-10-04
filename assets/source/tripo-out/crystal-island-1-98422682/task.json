@@ -1,0 +1,32 @@
+{
+  "task_id": "98422682-ad6b-49ff-950b-b5df61795767",
+  "type": "text_to_model",
+  "status": "success",
+  "input": {
+    "pbr": true,
+    "prompt": "Original stylized low polygon sky racing world, clean ivory and dark slate surfaces with cyan crystal and small orange accents, strong simple silhouette, isolated single game prop, no text, no logos. A floating rock island crowned by a cluster of enormous translucent cyan crystals, pale stone platform",
+    "texture": true,
+    "export_uv": true,
+    "face_limit": 6500,
+    "model_seed": 202,
+    "model_version": "v3.1-20260211",
+    "smart_low_poly": true,
+    "texture_quality": "detailed",
+    "geometry_quality": "standard",
+    "texture_alignment": "geometry"
+  },
+  "output_fields": [
+    "model_url",
+    "rendered_image_url",
+    "generated_image_url"
+  ],
+  "credits_consumed": 40,
+  "created_at": "2026-10-03T13:44:22.894061Z",
+  "completed_at": "2026-10-03T13:50:30.207534Z",
+  "files": [
+    "model.glb",
+    "rendered_image.webp",
+    "generated_image.jpeg",
+    "preview.png"
+  ]
+}

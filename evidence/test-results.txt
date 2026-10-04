@@ -1,0 +1,13 @@
+
+> skyline-sprint@1.0.0 test
+> vitest run
+
+
+ RUN  v5.0.3 C:/Users/mi/Documents/ChatGPT/top
+
+
+ Test Files  2 passed (2)
+      Tests  17 passed (17)
+   Start at  11:49:49
+   Duration  437ms (transform 43%, import 41%, tests 11%, worker 6%)
+

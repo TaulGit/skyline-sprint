@@ -1,0 +1,29 @@
+{
+  "task_id": "aa57aa5c-1113-4623-9f8c-e9111106e565",
+  "type": "text_to_model",
+  "status": "success",
+  "input": {
+    "pbr": true,
+    "prompt": "Original stylized low polygon sky racing world, clean ivory and dark slate surfaces with cyan crystal and small orange accents, strong simple silhouette, isolated single game prop, no text, no logos. A cluster of five angular cyan crystals on a small dark stone base",
+    "texture": true,
+    "export_uv": true,
+    "face_limit": 3000,
+    "model_seed": 310,
+    "model_version": "P1-20260311",
+    "texture_alignment": "geometry"
+  },
+  "output_fields": [
+    "model_url",
+    "rendered_image_url",
+    "generated_image_url"
+  ],
+  "credits_consumed": 40,
+  "created_at": "2026-10-03T13:54:58.009018Z",
+  "completed_at": "2026-10-03T13:56:41.017086Z",
+  "files": [
+    "model.glb",
+    "rendered_image.webp",
+    "generated_image.jpeg",
+    "preview.png"
+  ]
+}

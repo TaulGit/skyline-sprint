@@ -1,0 +1,147 @@
+{
+  "car": "models/car.glb",
+  "decorations": [
+    {
+      "name": "crystal-island",
+      "source": "crystal-island-2-a0b4c8ad",
+      "size": 25,
+      "samples": [
+        80,
+        250,
+        430
+      ],
+      "offset": 26,
+      "file": "models/crystal-island.glb",
+      "scale": 25
+    },
+    {
+      "name": "energy-core",
+      "source": "energy-core-2-0a32bc31",
+      "size": 24,
+      "samples": [
+        735
+      ],
+      "offset": 23,
+      "file": "models/energy-core.glb",
+      "scale": 24
+    },
+    {
+      "name": "finish-tower",
+      "source": "finish-tower-1-775d398c",
+      "size": 18,
+      "samples": [
+        875
+      ],
+      "offset": 17,
+      "file": "models/finish-tower.glb",
+      "scale": 18
+    },
+    {
+      "name": "floating-rock",
+      "source": "floating-rock-2-6d9ca692",
+      "size": 22,
+      "samples": [
+        150,
+        320,
+        500,
+        620
+      ],
+      "offset": -30,
+      "file": "models/floating-rock.glb",
+      "scale": 22
+    },
+    {
+      "name": "crystal-cluster",
+      "source": "crystal-cluster-1-aa57aa5c",
+      "size": 8,
+      "samples": [
+        25,
+        180,
+        390,
+        550,
+        835
+      ],
+      "offset": 17,
+      "file": "models/crystal-cluster.glb",
+      "scale": 8
+    },
+    {
+      "name": "watchtower",
+      "source": "watchtower-1-cf8aa49e",
+      "size": 8,
+      "samples": [
+        280,
+        570
+      ],
+      "offset": 14,
+      "file": "models/watchtower.glb",
+      "scale": 8
+    },
+    {
+      "name": "energy-crate",
+      "source": "energy-crate-1-27631f5d",
+      "size": 3,
+      "samples": [
+        70,
+        335
+      ],
+      "offset": 12,
+      "file": "models/energy-crate.glb",
+      "scale": 3
+    },
+    {
+      "name": "flag",
+      "source": "flag-1-f45043a7",
+      "size": 5,
+      "samples": [
+        12,
+        120,
+        360,
+        610,
+        860
+      ],
+      "offset": 8,
+      "file": "models/flag.glb",
+      "scale": 5
+    },
+    {
+      "name": "antenna",
+      "source": "antenna-2-8a8af546",
+      "size": 7,
+      "samples": [
+        160,
+        580
+      ],
+      "offset": 20,
+      "file": "models/antenna.glb",
+      "scale": 7
+    },
+    {
+      "name": "beacon",
+      "source": "beacon-1-39de38d3",
+      "size": 1.4,
+      "samples": [
+        400,
+        422,
+        436,
+        676,
+        788
+      ],
+      "offset": 6,
+      "file": "models/beacon.glb",
+      "scale": 1.4
+    },
+    {
+      "name": "arch",
+      "source": "arch-2-2df56cf5",
+      "size": 14,
+      "samples": [
+        55,
+        840
+      ],
+      "offset": 25,
+      "file": "models/arch.glb",
+      "scale": 14
+    }
+  ]
+}

@@ -2,7 +2,7 @@ type Cue='click'|'checkpoint'|'finish'|'impact';
 const SAMPLES=['engine','skid','click','checkpoint','finish','impact'] as const;
 /** Playback only: all effects are licensed recordings, not synthesized sounds. */
 export class Sound{
- context?:AudioContext;engine?:AudioBufferSourceNode;skid?:AudioBufferSourceNode;
+ context?:AudioContext;engine?:AudioBufferSourceNode;skid?:AudioBufferSourceNode;engineFilter?:BiquadFilterNode;
  engineGain?:GainNode;skidGain?:GainNode;buffers=new Map<string,AudioBuffer>();
  sfx=.6;private musicVolume=.35;private started=false;private loading?:Promise<void>;
  private voices=new Set<AudioBufferSourceNode>();private track=0;
@@ -25,12 +25,13 @@ export class Sound{
  private async load(){
   const ctx=this.context!;
   await Promise.all(SAMPLES.map(async name=>{try{const response=await fetch(`./assets/audio/${name}.wav`);if(!response.ok)throw Error(String(response.status));this.buffers.set(name,await ctx.decodeAudioData(await response.arrayBuffer()));}catch(e){console.warn(`Audio sample unavailable: ${name}`,e)}}));
-  for(const name of ['engine','skid'] as const){const buffer=this.buffers.get(name);if(!buffer)continue;const source=ctx.createBufferSource(),gain=ctx.createGain();source.buffer=buffer;source.loop=true;gain.gain.value=0;source.connect(gain).connect(ctx.destination);source.start();if(name==='engine'){this.engine=source;this.engineGain=gain}else{this.skid=source;this.skidGain=gain}}
+  for(const name of ['engine','skid'] as const){const buffer=this.buffers.get(name);if(!buffer)continue;const source=ctx.createBufferSource(),gain=ctx.createGain();source.buffer=buffer;source.loop=true;gain.gain.value=0;if(name==='engine'){const filter=ctx.createBiquadFilter();filter.type='lowpass';filter.frequency.value=2200;source.connect(filter).connect(gain);this.engineFilter=filter}else source.connect(gain);gain.connect(ctx.destination);source.start();if(name==='engine'){this.engine=source;this.engineGain=gain}else{this.skid=source;this.skidGain=gain}}
  }
  tick(speed:number,active:boolean,skidding=false){
   if(!this.context)return;const t=this.context.currentTime;
-  this.engine?.playbackRate.setTargetAtTime(.75+Math.min(1.45,Math.abs(speed)/32),t,.15);
-  this.engineGain?.gain.setTargetAtTime(active?this.sfx*(.12+Math.min(.16,Math.abs(speed)/180)):0,t,.08);
+  this.engine?.playbackRate.setTargetAtTime(.48+Math.min(.45,Math.abs(speed)/150),t,.15);
+  this.engineFilter?.frequency.setTargetAtTime(1500+Math.min(1600,Math.abs(speed)*25),t,.2);
+  this.engineGain?.gain.setTargetAtTime(active?this.sfx*(.11+Math.min(.09,Math.abs(speed)/500)):0,t,.08);
   this.skidGain?.gain.setTargetAtTime(active&&skidding&&Math.abs(speed)>8?this.sfx*.14:0,t,.07);
  }
  play(cue:Cue,volume=1){

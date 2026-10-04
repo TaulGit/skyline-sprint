@@ -13,3 +13,5 @@ assets/source/**/texture*
 tools/update-ui-temp.py
 assets/source/audio/impact/
 assets/source/audio/*.zip
+assets/source/audio/*.7z
+assets/source/audio/engine-loop/engine-loop-1.wav

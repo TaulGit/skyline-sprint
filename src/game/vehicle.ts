@@ -5,7 +5,7 @@ import {DT} from './race';
 export interface Control{throttle:number;brake:number;steer:number;handbrake:boolean}
 export class Vehicle{
  world:RAPIER.World;body:RAPIER.RigidBody;controller:RAPIER.DynamicRayCastVehicleController;
- grounded=0;speed=0;steering=0;position=new Vector3();rotation=new Quaternion();previous=new Vector3();normal=new Vector3(0,1,0);
+ grounded=0;speed=0;steering=0;drifting=false;position=new Vector3();rotation=new Quaternion();previous=new Vector3();normal=new Vector3(0,1,0);
  constructor(public track:Track){
   this.world=new RAPIER.World({x:0,y:-9.81,z:0});this.world.timestep=DT;
   const mesh=roadMesh(track);this.world.createCollider(RAPIER.ColliderDesc.trimesh(mesh.vertices,mesh.indices).setFriction(1).setRestitution(0));
@@ -23,16 +23,17 @@ export class Vehicle{
   }
   this.reset(track.spawn);this.world.step();
  }
- reset(s:Sample){const p=vec(s.p).addScaledVector(vec(s.u),.67);this.body.setTranslation(p,true);this.body.setRotation(quat(s.q),true);this.body.setLinvel({x:0,y:0,z:0},true);this.body.setAngvel({x:0,y:0,z:0},true);this.body.resetForces(true);this.body.resetTorques(true);this.steering=0;this.sync();this.previous.copy(this.position);}
+ reset(s:Sample){const p=vec(s.p).addScaledVector(vec(s.u),.67);this.body.setTranslation(p,true);this.body.setRotation(quat(s.q),true);this.body.setLinvel({x:0,y:0,z:0},true);this.body.setAngvel({x:0,y:0,z:0},true);this.body.resetForces(true);this.body.resetTorques(true);this.steering=0;this.drifting=false;this.sync();this.previous.copy(this.position);}
  sync(){this.position.copy(this.body.translation());this.rotation.copy(this.body.rotation());this.speed=new Vector3().copy(this.body.linvel()).dot(new Vector3(0,0,1).applyQuaternion(this.rotation));}
  step(input:Control){
   this.previous.copy(this.position);const speed=Math.abs(this.speed),target=input.steer*(.42/(1+speed*.055));this.steering+=(target-this.steering)*.13;
+  this.drifting=input.brake>0&&Math.abs(input.steer)>.15&&this.speed>8&&this.grounded>=2;
   for(let i=0;i<4;i++){
    this.controller.setWheelSteering(i,i<2?-this.steering:0);
-   const reverse=input.brake>0&&this.speed<1;const power=reverse?(this.speed>-12?-1900:0):input.throttle*2600*Math.max(0,1-speed/62);
+   const reverse=input.brake>0&&this.speed<1;const power=reverse?(this.speed>-12?-1900:0):input.throttle*3600*Math.max(0,1-speed/82);
    this.controller.setWheelEngineForce(i,power);
-   this.controller.setWheelBrake(i,reverse?0:input.brake*16+(input.handbrake&&i>=2?22:0));
-   this.controller.setWheelFrictionSlip(i,input.handbrake&&i>=2?.85:2.2);
+   this.controller.setWheelBrake(i,reverse?0:this.drifting?(i>=2?input.brake*5:0):input.brake*16+(input.handbrake&&i>=2?22:0));
+   this.controller.setWheelFrictionSlip(i,this.drifting&&i>=2?.58:input.handbrake&&i>=2?.85:2.2);
   }
   this.controller.updateVehicle(DT);this.grounded=0;this.normal.set(0,0,0);
   for(let i=0;i<4;i++)if(this.controller.wheelIsInContact(i)){this.grounded++;const n=this.controller.wheelContactNormal(i);if(n)this.normal.add(n);}

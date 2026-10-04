@@ -1,8 +1,8 @@
 [
   {
     "file": "public/assets/audio/engine.wav",
-    "source": "assets/source/audio/engine.ogg",
-    "duration": 8.0,
+    "source": "assets/source/audio/engine-loop/engine-loop-1-normalized.wav",
+    "duration": 3.88,
     "sampleRate": 44100
   },
   {

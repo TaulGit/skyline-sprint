@@ -3,12 +3,13 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {roadMesh,vec,quat,type Track} from '../game/track';
 import type {Vehicle} from '../game/vehicle';
 import {createSky} from './sky';
+import {TireTrails} from './tire-trails';
 export class Scene{
  renderer:T.WebGLRenderer;scene=new T.Scene();camera=new T.PerspectiveCamera(62,1,.1,1800);car=new T.Group();ghost=new T.Group();wheels:T.Object3D[]=[];carMaterials:T.MeshStandardMaterial[]=[];decorations:T.Object3D[]=[];lowQuality=false;cameraUp=new T.Vector3(0,1,0);target=new T.Vector3();gates:T.Group[]=[];bodyMaterial=new T.MeshStandardMaterial({color:0x38d9ec,metalness:.45,roughness:.32});
- cameraObstacles:T.Object3D[]=[];cameraRay=new T.Raycaster();fallbackScenery=new T.Group();sky=createSky();
+ cameraObstacles:T.Object3D[]=[];cameraRay=new T.Raycaster();fallbackScenery=new T.Group();sky=createSky();trails=new TireTrails();
  constructor(public track:Track,canvas:HTMLCanvasElement){
   this.renderer=new T.WebGLRenderer({canvas,antialias:true,powerPreference:'high-performance'});this.renderer.setPixelRatio(Math.min(devicePixelRatio,1.6));this.renderer.setClearColor(0xb2cbdc);this.renderer.outputColorSpace=T.SRGBColorSpace;this.renderer.toneMapping=T.ACESFilmicToneMapping;this.renderer.toneMappingExposure=1.2;
-  this.scene.fog=new T.Fog(0xb8d4e3,160,780);this.scene.add(this.sky,this.fallbackScenery);this.scene.add(new T.HemisphereLight(0xd9f5ff,0x55547a,2.2));const sun=new T.DirectionalLight(0xffedd6,2.6);sun.position.set(-100,200,70);this.scene.add(sun);
+  this.scene.fog=new T.Fog(0xb8d4e3,160,780);this.scene.add(this.sky,this.fallbackScenery,this.trails.group);this.scene.add(new T.HemisphereLight(0xd9f5ff,0x55547a,2.2));const sun=new T.DirectionalLight(0xffedd6,2.6);sun.position.set(-100,200,70);this.scene.add(sun);
   const road=roadMesh(track),edge=roadMesh(track,true);
   for(const [data,color] of [[road,0xe3e9e4],[edge,0xf29162]] as const){const geo=new T.BufferGeometry();geo.setAttribute('position',new T.BufferAttribute(data.vertices,3));geo.setIndex(new T.BufferAttribute(data.indices,1));geo.computeVertexNormals();const mesh=new T.Mesh(geo,new T.MeshStandardMaterial({color,roughness:.8,side:T.DoubleSide}));this.scene.add(mesh);this.cameraObstacles.push(mesh);}
   const box=new T.BoxGeometry(1,1,1),cyan=new T.MeshStandardMaterial({color:0x2ed4e3,emissive:0x086573,emissiveIntensity:.25}),dark=new T.MeshStandardMaterial({color:0x263c51,roughness:.7});

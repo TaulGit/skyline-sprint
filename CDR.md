@@ -17,7 +17,7 @@
 
 | 项目 | 结论 | 证据 |
 | --- | --- | --- |
-| 声明与资源 | pass | 游戏 8537，preview board `skyline_v1_time`，MIN/ASC，daily/weekly/fourweekly；doctor readiness 通过。 |
+| 声明与资源 | pass | 游戏 8537，preview board `skyline_v2_time`，MIN/ASC，daily/weekly/fourweekly；与旧物理版本榜隔离，doctor readiness 通过。 |
 | 客户端成绩边界 | pass | 仅显示排行，不依据榜值发放资产或奖励。 |
 | 幂等 | pass | 每次正式完整完赛一个 UUID；CAPABILITY_UNAVAILABLE 同会话同结算仅一次限次重试，ID 与 payload 固定。离开该结算取消待重试。 |
 | 窗口与投影 | pass | 三种平台 view；READY/PENDING/DELAYED/EMPTY、TopK 外、拒绝授权和终态失败分别处理。未按本机日期生成窗口。 |

@@ -55,6 +55,14 @@ star-letter dev --open
 
 场景重建：用安装了 `bpy==4.2.0` 的 Python 执行 `tools/blender-environment.py`，再执行 `node tools/optimize-environment.mjs`，以及 `tools/check-scenery.py` 和 `tools/blender-cover.py`。这些步骤复用已有 Tripo 资产和贴图，不发生 Tripo API 扣费。
 
+## 2026-10-04 速度、漂移与轮迹更新
+
+- 新物理版本 `raycast-120-v2-dev`，独立预览榜 `skyline_v2_time`，旧榜保留且不混排。
+- 三秒直线速度从约 99 km/h 提高到 127 km/h；自动驾驶整圈最高速度从约 148 km/h 提高到 172 km/h。飞跃、环道和全部检查点通过，30/60/120 FPS 回放均为 36.862 秒。
+- 转弯按 S/↓ 时降低后轮附着并形成可控漂移。四个车轮的路面接触点生成痕迹，漂移后轮痕更深；重开和复位清除旧痕。
+- 发动机声换成 qubodup 实车录音；素材、CC BY 3.0 署名和循环处理见 `assets/AUDIO_LICENSES.md`。
+- `npm test` 共 22 项通过；`npm run build`、`star-letter check` 与 `star-letter doctor` 通过。
+
 ## 2026-10-04 封面、音频与操作更新
 
 - 带标题复古海报封面已替换；主菜单、HUD、设置和结算文案精简。

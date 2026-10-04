@@ -34,7 +34,7 @@ npm run build
 
 The build bakes the track, checks scenery clearance against the full course, checks TypeScript, bundles the game and updates the Star-letter preview entry. `star-letter dev --open` opens the platform preview when the creator CLI is installed and authenticated.
 
-The creator has published game #8537 on Star-letter. This revision is uploaded as an update draft; it does not automatically replace the published version.
+The creator has published game #8537 on Star-letter. This revision is published as live version #17774.
 
 ## Tripo and Blender workflow
 

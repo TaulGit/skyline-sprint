@@ -30,3 +30,7 @@
 ## 本次发布边界
 
 创作者已发布线上版本；本次仅保存更新草稿。已同步服务端锁定活动 #3004、screen=1 与免费买断配置（priceType=1、price=0）。本机测试、资源声明与榜单定义检查通过。草稿保存后，中央 capability preflight 已恢复通过，doctor 结果为 13 项通过、0 项失败。更新草稿版本为 17774，线上版本仍为 17665；详见 evidence/doctor.json 与 evidence/release-state-v5.json。
+
+## 正式更新
+
+创作者明确要求直接更新后，执行 `star-letter publish` 成功。线上版本从 #17665 切换为 #17774，草稿槽位清空；发布前 `check` 与 `doctor` 均通过。

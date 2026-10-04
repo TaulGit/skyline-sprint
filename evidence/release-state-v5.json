@@ -13,5 +13,12 @@
     "editState": 1,
     "publishTime": 1791125090420
   },
-  "liveVersionUnchanged": true
+  "liveVersionUnchanged": true,
+  "published": {
+    "status": 10,
+    "liveVersionId": 17774,
+    "editingVersionId": null,
+    "editState": 0
+  },
+  "liveVersionPromoted": true
 }

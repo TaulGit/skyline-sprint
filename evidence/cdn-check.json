@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-04T14:19:08.909Z",
+  "checkedAt": "2026-10-04T15:18:17.035Z",
   "gameId": 8537,
   "mode": "relative URLs without query parameters",
   "files": [
@@ -116,27 +116,27 @@
       "matchesLocal": true
     },
     {
-      "path": "assets/index-BiE80Mqg.js",
+      "path": "assets/index-BSga8bpn.css",
       "status": 200,
-      "mime": "text/javascript;charset=UTF-8",
-      "bytes": 4993515,
-      "sha256": "40f611b8732f36e23ca426aefe96e886aa920087dbe08d1039764493794d9e38",
+      "mime": "text/css;charset=UTF-8",
+      "bytes": 7880,
+      "sha256": "0998f55d264676161c04a73ad69971127fecb2ec299edf5b20b0afcffd2856a0",
       "matchesLocal": true
     },
     {
-      "path": "assets/index-inQDi2cL.css",
+      "path": "assets/index-C50870x0.js",
       "status": 200,
-      "mime": "text/css;charset=UTF-8",
-      "bytes": 7583,
-      "sha256": "6c1c6fd8d0818b45c04af161b3946af3ff2cb198c7f1b3e6d9756b7237a7342b",
+      "mime": "text/javascript;charset=UTF-8",
+      "bytes": 5000637,
+      "sha256": "6a4a56e8ef512d62302c0e91e23d63383583208720db9eeaa885570b9081fc42",
       "matchesLocal": true
     },
     {
       "path": "assets/models.json",
       "status": 200,
       "mime": "application/json;charset=UTF-8",
-      "bytes": 4348,
-      "sha256": "abdfc289cecb57939dcb96e61d17f79449312b331ed999abd631007720f86173",
+      "bytes": 4727,
+      "sha256": "c4864bffc0942694a213b3b58b316e61e274bb61b3466fd1b0aaccb15b27d3e4",
       "matchesLocal": true
     },
     {
@@ -496,7 +496,7 @@
       "status": 200,
       "mime": "application/json;charset=UTF-8",
       "bytes": 307909,
-      "sha256": "e15322d9f7cf5b0e4ea02a7377657eda6ae18030cff9ed09c644578b1758f009",
+      "sha256": "4d3b267d944656d82021bf1ae46501404924acba9c7e6a090ca32a4fbf79f055",
       "matchesLocal": true
     },
     {
@@ -504,7 +504,7 @@
       "status": 200,
       "mime": "text/html;charset=UTF-8",
       "bytes": 585,
-      "sha256": "83756ab0d53b42e0254ea20a6fbebe5c90fc45897e1c638aaf0f2c7d45942cee",
+      "sha256": "3c85a57a3ddccd9ffc62b69f15552bdc500660b73290aae010d99411a235c0ef",
       "matchesLocal": true
     }
   ]

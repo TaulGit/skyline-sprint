@@ -1,0 +1,17 @@
+{
+  "before": {
+    "status": 10,
+    "liveVersionId": 17665,
+    "editingVersionId": null,
+    "editState": 0,
+    "publishTime": 1791125090420
+  },
+  "after": {
+    "status": 10,
+    "liveVersionId": 17665,
+    "editingVersionId": 17774,
+    "editState": 1,
+    "publishTime": 1791125090420
+  },
+  "liveVersionUnchanged": true
+}

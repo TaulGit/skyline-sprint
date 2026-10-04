@@ -14,7 +14,12 @@ export class Race{
  start(id:string){this.ticks=0;this.next=0;this.splits=[];this.reason='';this.finished=false;this.result=0;this.running=true;this.id=id;}
  invalidate(reason:string){if(this.running&&!this.reason)this.reason=reason;}
  step(a:Vector3,b:Vector3){if(!this.running)return;if(!Number.isFinite(a.lengthSq()+b.lengthSq())||a.distanceTo(b)>90*DT)this.invalidate('车辆状态异常 · 本局转为练习');let previousFraction=-1;
+  const finishFraction=crossing(a,b,this.gates[this.gates.length-1]);
   while(this.next<this.gates.length){const f=crossing(a,b,this.gates[this.next]);if(f===null||f<previousFraction)break;previousFraction=f;const ms=Math.round((this.ticks+f)*DT*1000);this.splits.push(ms);this.next++;if(this.next===this.gates.length){this.result=ms;this.running=false;this.finished=true;break;}}
+  if(!this.finished&&finishFraction!==null&&this.next<this.gates.length-1){
+   this.invalidate(`漏过 CP ${this.next+1} · 练习完赛`);
+   this.result=Math.round((this.ticks+finishFraction)*DT*1000);this.running=false;this.finished=true;
+  }
   this.ticks++;if(this.ticks*DT>600)this.invalidate('超过正式挑战时限');
  }
  get elapsed(){return this.finished?this.result:Math.round(this.ticks*DT*1000)}

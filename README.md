@@ -63,7 +63,7 @@ git lfs pull
 | `assets/blender/` | 可编辑场景和模型源文件（Git LFS） |
 | `tools/` | 构建、音频转换与验证脚本 |
 
-物理改动使用 `raycast-120-v2-dev`，对应独立的预览榜 `skyline_v2_time`，避免与旧速度规则的成绩混排。排行榜仅作展示；正式发布前的验收范围见 [ACCEPTANCE.md](ACCEPTANCE.md) 和 [CDR.md](CDR.md)。
+当前赛道规则 `skyline-v1.1.0-dev`、物理规则 `raycast-120-v3-dev` 对应独立的预览榜 `skyline_v3_time`，避免与旧规则的成绩混排。六道检查点按路线顺序设置；漏点后冲线会显示练习完赛，不计排行榜。排行榜仅作展示；正式发布前的验收范围见 [ACCEPTANCE.md](ACCEPTANCE.md) 和 [CDR.md](CDR.md)。
 
 ## 素材来源
 

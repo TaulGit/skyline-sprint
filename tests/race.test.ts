@@ -4,11 +4,13 @@ import {Race,crossing,FixedClock,DT} from '../src/game/race';
 import {byteSize,cloudRecord,packFrame,playback,validRecord,type RecordData} from '../src/game/replay';
 import {Quaternion} from 'three';
 import type {Gate} from '../src/game/track';
+import track from '../public/assets/track.json';
 const gate=(z:number):Gate=>({p:[0,0,z],t:[0,0,1],u:[0,1,0],r:[1,0,0],q:[0,0,0,1],s:z,width:10,road:true,name:'test',index:0,label:'CP'});
 describe('directed finite swept gates',()=>{
  it('interpolates a high speed crossing',()=>expect(crossing(new Vector3(0,1,-30),new Vector3(0,1,70),gate(0))).toBeCloseTo(.3));
  it('rejects reverse, out of width and overflight',()=>{expect(crossing(new Vector3(0,1,1),new Vector3(0,1,-1),gate(0))).toBeNull();expect(crossing(new Vector3(8,1,-1),new Vector3(8,1,1),gate(0))).toBeNull();expect(crossing(new Vector3(0,9,-1),new Vector3(0,9,1),gate(0))).toBeNull();});
- it('cannot finish by skipping earlier checkpoints',()=>{const r=new Race([gate(5),gate(20)]);r.start('one');r.step(new Vector3(0,1,19),new Vector3(0,1,21));expect(r.next).toBe(0);expect(r.finished).toBe(false);});
+ it('ends as practice when crossing the finish after a missed checkpoint',()=>{const r=new Race([gate(5),gate(20)]);r.start('one');r.step(new Vector3(0,1,19.8),new Vector3(0,1,20.2));expect(r.next).toBe(0);expect(r.finished).toBe(true);expect(r.valid).toBe(false);expect(r.reason).toContain('CP 1');});
+ it('bakes the six configured checkpoints in route order',()=>{expect(track.gates.map(g=>g.label)).toEqual(['CP 1','CP 2','CP 3','CP 4','CP 5','CP 6','FINISH']);expect(track.gates[0].s).toBeLessThan(130);expect(track.gates[4].name).toBe('能源环助跑');});
  it('prevents a gate with an earlier sweep fraction passing after another',()=>{const r=new Race([gate(20),gate(5)]);r.start('one');r.step(new Vector3(0,1,0),new Vector3(0,1,25));expect(r.next).toBe(1);});
  it('invalidates practice and fully resets runs',()=>{const r=new Race([gate(1)]);r.start('a');r.invalidate('pause');r.ticks=240;r.step(new Vector3(0,1,0),new Vector3(0,1,2));expect(r.valid).toBe(false);r.start('b');expect(r.reason).toBe('');expect(r.ticks).toBe(0);expect(r.splits).toEqual([]);});
 });

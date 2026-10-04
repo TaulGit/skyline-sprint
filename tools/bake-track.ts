@@ -21,7 +21,6 @@ design.segments.forEach((seg:any,idx:number)=>{
    const t=fw.clone().multiplyScalar(Math.cos(a)).add(new Vector3(0,Math.sin(a),0)).addScaledVector(rt,seg.drift/(Math.PI*2*seg.radius)).normalize();
    const up=fw.clone().multiplyScalar(-Math.sin(a)).add(new Vector3(0,Math.cos(a),0)).normalize();
    add(p,t,up,true,seg.name);
-   if(j===Math.floor(n/2)){const k=samples.length-1;gates.push({...samples[k],index:k,label:'LOOP APEX'});}
   }else{
    heading=h0+(seg.turn||0)*f;
    // Midpoint integration and smooth elevation remove slope discontinuities.
@@ -34,7 +33,7 @@ design.segments.forEach((seg:any,idx:number)=>{
    const u=new Vector3(0,1,0).applyAxisAngle(t,(seg.bank||0)*Math.sin(Math.PI*f));add(p,t,u,seg.kind!=='gap',seg.name);
   }
  }
- if(idx!==0&&design.checkpointSegments.includes(idx)){const k=samples.length-5;gates.push({...samples[k],index:k,label:`CP ${gates.length+1}`});}
+ if(design.checkpointSegments.includes(idx)){const k=samples.length-5;gates.push({...samples[k],index:k,label:`CP ${gates.length+1}`});}
 });
 gates.push({...samples.at(-5),index:samples.length-5,label:'FINISH'});
 const track={...design,samples,gates,length:distance,spawn:{...samples[4]},hash:''};

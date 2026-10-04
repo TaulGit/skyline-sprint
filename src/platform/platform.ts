@@ -1,5 +1,5 @@
 import {cloudRecord,validRecord,type RecordData} from '../game/replay';
-export const BOARD='skyline_v2_time';
+export const BOARD='skyline_v3_time';
 export interface Settings{color:string;sfx:number;music:number;lowMotion:boolean;quality:string;autoThrottle:boolean;ghost:boolean}
 export const defaults:Settings={color:'#38d9ec',sfx:.6,music:.15,lowMotion:false,quality:'high',autoThrottle:false,ghost:true};
 // Wire interfaces follow SDK v2.4.5 rev21; runtime is exclusively the official IIFE.

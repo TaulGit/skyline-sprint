@@ -19,7 +19,8 @@ describe('down-key drift and wheel trails',()=>{
    results.push(start.angleTo(new Vector3(0,0,1).applyQuaternion(car.rotation)));
    car.dispose();
   }
-  expect(results[1]-results[0]).toBeGreaterThan(.1);
+  expect(results[1]-results[0]).toBeGreaterThan(.05);
+  expect(results[1]-results[0]).toBeLessThan(.12);
  });
  it('records four real wheel contact trails and clears them on reset',()=>{
   const car=new Vehicle(track),trails=new TireTrails();

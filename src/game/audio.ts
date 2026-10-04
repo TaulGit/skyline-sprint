@@ -4,17 +4,17 @@ const SAMPLES=['engine','skid','click','checkpoint','finish','impact'] as const;
 export class Sound{
  context?:AudioContext;engine?:AudioBufferSourceNode;skid?:AudioBufferSourceNode;engineFilter?:BiquadFilterNode;
  engineGain?:GainNode;skidGain?:GainNode;buffers=new Map<string,AudioBuffer>();
- sfx=.6;private musicVolume=.35;private started=false;private loading?:Promise<void>;
+ sfx=.6;private musicVolume=.15;private started=false;private loading?:Promise<void>;
  private voices=new Set<AudioBufferSourceNode>();private track=0;
  readonly playlist=['./assets/audio/sky-flight-1.mp3','./assets/audio/sky-flight-2.mp3'];
  readonly player:HTMLAudioElement;
  constructor(){
-  this.player=document.createElement('audio');this.player.id='bgm';this.player.hidden=true;this.player.preload='metadata';this.player.src=this.playlist[0];this.player.volume=this.musicVolume;document.body.append(this.player);
+  this.player=document.createElement('audio');this.player.id='bgm';this.player.hidden=true;this.player.preload='metadata';this.player.src=this.playlist[0];this.player.volume=this.musicVolume*.65;document.body.append(this.player);
   this.player.addEventListener('ended',()=>this.nextTrack());
   document.addEventListener('visibilitychange',()=>{if(document.hidden){this.player.pause();void this.context?.suspend();}else if(this.started)this.start();});
  }
  get music(){return this.musicVolume}
- set music(value:number){this.musicVolume=Math.max(0,Math.min(1,value));this.player.volume=this.musicVolume;}
+ set music(value:number){this.musicVolume=Math.max(0,Math.min(1,value));this.player.volume=this.musicVolume*.65;}
  start(){
   this.started=true;if(document.hidden)return;
   if(!this.context)this.context=new AudioContext();void this.context.resume();

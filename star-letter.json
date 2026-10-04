@@ -25,7 +25,7 @@
       "leaderboard": {
         "enabled": true,
         "boards": [
-          "skyline_v2_time"
+          "skyline_v3_time"
         ]
       }
     }

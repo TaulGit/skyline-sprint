@@ -5,14 +5,21 @@ export class Sound{
  context?:AudioContext;engine?:AudioBufferSourceNode;skid?:AudioBufferSourceNode;engineFilter?:BiquadFilterNode;
  engineGain?:GainNode;skidGain?:GainNode;buffers=new Map<string,AudioBuffer>();
  sfx=.6;private musicVolume=.15;private started=false;private loading?:Promise<void>;
- private voices=new Set<AudioBufferSourceNode>();private track=0;
+ private voices=new Set<AudioBufferSourceNode>();private track=0;private cachedTracks:string[]=[];
  readonly playlist=['./assets/audio/sky-flight-1.mp3','./assets/audio/sky-flight-2.mp3'];
  readonly player:HTMLAudioElement;
  constructor(){
-  this.player=document.createElement('audio');this.player.id='bgm';this.player.hidden=true;this.player.preload='metadata';this.player.src=this.playlist[0];this.player.volume=this.musicVolume*.65;document.body.append(this.player);
+  this.player=document.createElement('audio');this.player.id='bgm';this.player.hidden=true;this.player.preload='auto';this.player.src=this.playlist[0];this.player.volume=this.musicVolume*.65;document.body.append(this.player);
   this.player.addEventListener('ended',()=>this.nextTrack());
   document.addEventListener('visibilitychange',()=>{if(document.hidden){this.player.pause();void this.context?.suspend();}else if(this.started)this.start();});
  }
+ async preload(progress:(done:number,total:number)=>void=()=>{}){
+  let done=0;progress(0,this.playlist.length+SAMPLES.length);
+  const urls=await Promise.all(this.playlist.map(async path=>{const response=await fetch(path);if(!response.ok)throw Error(`BGM ${response.status}`);const url=URL.createObjectURL(await response.blob());progress(++done,this.playlist.length+SAMPLES.length);return url;}));
+  this.cachedTracks=urls;this.player.src=urls[this.track];this.player.load();
+  this.context??=new AudioContext();this.loading=this.load(()=>progress(++done,this.playlist.length+SAMPLES.length));await this.loading;
+ }
+
  get music(){return this.musicVolume}
  set music(value:number){this.musicVolume=Math.max(0,Math.min(1,value));this.player.volume=this.musicVolume*.65;}
  start(){
@@ -21,10 +28,10 @@ export class Sound{
   if(this.player.paused)void this.player.play().catch(()=>{});
   if(!this.loading)this.loading=this.load();
  }
- nextTrack(){this.track=(this.track+1)%this.playlist.length;this.player.src=this.playlist[this.track];if(this.started&&!document.hidden)void this.player.play().catch(()=>{});}
- private async load(){
+ nextTrack(){this.track=(this.track+1)%this.playlist.length;this.player.src=this.cachedTracks[this.track]??this.playlist[this.track];if(this.started&&!document.hidden)void this.player.play().catch(()=>{});}
+ private async load(progress:()=>void=()=>{}){
   const ctx=this.context!;
-  await Promise.all(SAMPLES.map(async name=>{try{const response=await fetch(`./assets/audio/${name}.wav`);if(!response.ok)throw Error(String(response.status));this.buffers.set(name,await ctx.decodeAudioData(await response.arrayBuffer()));}catch(e){console.warn(`Audio sample unavailable: ${name}`,e)}}));
+  await Promise.all(SAMPLES.map(async name=>{try{const response=await fetch(`./assets/audio/${name}.wav`);if(!response.ok)throw Error(String(response.status));this.buffers.set(name,await ctx.decodeAudioData(await response.arrayBuffer()));}catch(e){console.warn(`Audio sample unavailable: ${name}`,e)}finally{progress()}}));
   for(const name of ['engine','skid'] as const){const buffer=this.buffers.get(name);if(!buffer)continue;const source=ctx.createBufferSource(),gain=ctx.createGain();source.buffer=buffer;source.loop=true;gain.gain.value=0;if(name==='engine'){const filter=ctx.createBiquadFilter();filter.type='lowpass';filter.frequency.value=2200;source.connect(filter).connect(gain);this.engineFilter=filter}else source.connect(gain);gain.connect(ctx.destination);source.start();if(name==='engine'){this.engine=source;this.engineGain=gain}else{this.skid=source;this.skidGain=gain}}
  }
  tick(speed:number,active:boolean,skidding=false){

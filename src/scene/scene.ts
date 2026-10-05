@@ -33,12 +33,12 @@ export class Scene{
   if(!ghost)for(const x of [-.56,.56]){const light=new T.Mesh(new T.BoxGeometry(.34,.08,.03),new T.MeshBasicMaterial({color:0xdcfcff}));light.position.set(x,.14,1.76);group.add(light);}
  }
  setColor(color:string){this.bodyMaterial.color.set(color);for(const mat of this.carMaterials)mat.color.set('#ffffff').lerp(new T.Color(color),.3);}
- async loadAssets(){
-  const response=await fetch('./assets/models.json');if(!response.ok)throw Error('模型清单加载失败');const manifest=await response.json(),loader=new GLTFLoader();
-  const environment=await loader.loadAsync('./assets/environment.glb');this.scene.add(environment.scene);this.fallbackScenery.visible=false;
-  for(const choice of manifest.cars??[{id:'car',file:manifest.car}]){const loaded=await loader.loadAsync(`./assets/${choice.file}`);this.carModels.set(choice.id,loaded.scene);}
+ async loadAssets(progress:(done:number,total:number)=>void=()=>{}){
+  const response=await fetch('./assets/models.json');if(!response.ok)throw Error('模型清单加载失败');const manifest=await response.json(),loader=new GLTFLoader();const total=1+(manifest.cars?.length??1)+manifest.decorations.length*2;let done=0;const loadModel=async(path:string)=>{const result=await loader.loadAsync(path);progress(++done,total);return result;};progress(0,total);
+  const environment=await loadModel('./assets/environment.glb');this.scene.add(environment.scene);this.fallbackScenery.visible=false;
+  for(const choice of manifest.cars??[{id:'car',file:manifest.car}]){const loaded=await loadModel(`./assets/${choice.file}`);this.carModels.set(choice.id,loaded.scene);}
   this.setCar('car');
-  for(const asset of manifest.decorations){const [high,low]=await Promise.all([loader.loadAsync(`./assets/${asset.file}`),loader.loadAsync(`./assets/${asset.file.replace('.glb','-low.glb')}`)]);
+  for(const asset of manifest.decorations){const [high,low]=await Promise.all([loadModel(`./assets/${asset.file}`),loadModel(`./assets/${asset.file.replace('.glb','-low.glb')}`)]);
    for(const index of asset.samples){const s=this.track.samples[index],lod=new T.LOD();lod.addLevel(high.scene.clone(),0);lod.addLevel(low.scene.clone(),80);lod.position.copy(vec(s.p).addScaledVector(vec(s.r),asset.offset));lod.position.y+=(asset.height??0)-(asset.name==='floating-rock'?asset.scale*.85:0);if(asset.positions?.[String(index)])lod.position.copy(vec(asset.positions[String(index)]));if(asset.align)lod.quaternion.copy(quat(s.q));lod.rotateY(asset.yaw??0);lod.userData.distant=!!asset.distant;lod.scale.setScalar(asset.scale);this.scene.add(lod);this.decorations.push(lod);
     if(asset.name==='warning-sign'){const label=new T.Mesh(new T.PlaneGeometry(.76,.27),new T.MeshBasicMaterial({map:this.signTexture}));label.position.set(0,.66,.125);lod.add(label);const arm=new T.Mesh(new T.BoxGeometry(3.7,.22,.3),new T.MeshStandardMaterial({color:0x617e89,metalness:.5,roughness:.6}));arm.position.copy(vec(s.p).addScaledVector(vec(s.r),6.9).addScaledVector(vec(s.u),-.12));arm.quaternion.copy(quat(s.q));this.scene.add(arm);}
 }

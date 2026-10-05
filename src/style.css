@@ -3,3 +3,5 @@
 .garage{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.car-choice{padding:8px;border-radius:10px;background:#254157}.car-choice.selected{border:2px solid #5ee6ee;background:#245a67}.car-choice img{width:100%;aspect-ratio:1;object-fit:contain}.car-choice strong,.car-choice small{display:block;margin:8px 0}.car-choice small{color:#b8cbd4;font-size:11px}@media(max-width:500px){.garage{gap:6px}.car-choice{padding:4px}.car-choice small{font-size:9px}}
 
 .language-toggle{position:absolute;top:28px;right:5vw;padding:10px 16px;background:#10283ecc;border-radius:6px}html[lang=en] .hero h1{font-family:"Barlow Condensed",sans-serif;letter-spacing:-1px;font-size:clamp(48px,6vw,84px)}html[lang=en] .controls-hint{font-size:10px}html[lang=en] .row{gap:12px}
+
+.loading progress{width:min(360px,70vw);height:12px;accent-color:#6ee7ef;border-radius:9px}.loading #loading-percent{font-variant-numeric:tabular-nums;margin:8px}.loading:after{display:none}

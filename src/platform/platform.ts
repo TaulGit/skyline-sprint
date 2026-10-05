@@ -1,6 +1,6 @@
 import {getLanguage,type Language} from '../i18n';
 import {cloudRecord,validRecord,type RecordData} from '../game/replay';
-export const BOARD='skyline_v5_time';
+export const BOARD='skyline_v6_time';
 export interface Settings{language:Language;car:string;color:string;sfx:number;music:number;lowMotion:boolean;quality:string;autoThrottle:boolean;ghost:boolean}
 export const defaults:Settings={language:getLanguage(),car:'car',color:'#38d9ec',sfx:.6,music:.15,lowMotion:false,quality:'high',autoThrottle:false,ghost:true};
 // Wire interfaces follow SDK v2.4.6 rev23; runtime is exclusively the official IIFE.
@@ -30,7 +30,17 @@ export class Platform{
  }
  async submit(id:string,time:number){if(!this.sdk?.leaderboard){this.status('本机成绩已保留 · 排行能力尚未就绪');return;}const gen=this.generation,settlement=this.settlement,session=this.sdk.context.sessionId,payload={boardCode:BOARD,submissionId:id,payload:{type:'numeric',value:time}};
   // Only same-result CAPABILITY_UNAVAILABLE gets one bounded same-session retry.
-  for(let attempt=0;attempt<2;attempt++)try{const r=await this.sdk.leaderboard.submit(payload);if(gen!==this.generation||settlement!==this.settlement||session!==this.sdk.context.sessionId)return;this.status(r.targets?.some((t:any)=>t.projection.status==='PENDING')?'成绩已接收 · 排名计算中':'成绩已提交');return r;}catch(e){if(gen!==this.generation||settlement!==this.settlement||session!==this.sdk.context.sessionId)return;const code=this.error(e);if(code==='CAPABILITY_UNAVAILABLE'&&attempt===0){const delay=window.GameSDK?.isPlatformSDKError(e)?e.details?.retryAfterMs:undefined;await new Promise(r=>setTimeout(r,Math.max(500,Math.min(delay??1000,5000))));if(gen!==this.generation||settlement!==this.settlement||session!==this.sdk.context.sessionId)return;continue;}this.status(code==='LEADERBOARD_MATERIALIZATION_PENDING'?'成绩已记录 · 榜单更新中':code==='PERMISSION_DENIED'?'未授权排行 · 本局保存在本机':`提交未完成 · ${code} · 可继续新挑战`);return;}
+  for(let attempt=0;attempt<2;attempt++)try{const r=await this.sdk.leaderboard.submit(payload);if(gen!==this.generation||settlement!==this.settlement||session!==this.sdk.context.sessionId)return;this.status(r.targets?.some((t:any)=>t.projection.status==='PENDING')?'成绩已接收 · 排名计算中':'成绩已提交');void this.verifyMyValue(gen,settlement,session);return r;}catch(e){if(gen!==this.generation||settlement!==this.settlement||session!==this.sdk.context.sessionId)return;const code=this.error(e);if(code==='CAPABILITY_UNAVAILABLE'&&attempt===0){const delay=window.GameSDK?.isPlatformSDKError(e)?e.details?.retryAfterMs:undefined;await new Promise(r=>setTimeout(r,Math.max(500,Math.min(delay??1000,5000))));if(gen!==this.generation||settlement!==this.settlement||session!==this.sdk.context.sessionId)return;continue;}this.status(code==='LEADERBOARD_MATERIALIZATION_PENDING'?'成绩已记录 · 榜单更新中':code==='PERMISSION_DENIED'?'未授权排行 · 本局保存在本机':`提交未完成 · ${code} · 可继续新挑战`);return;}
+ }
+ async verifyMyValue(gen:number,settlement:number,session:string|undefined){
+  for(const delay of [1200,3000,5000]){
+   await new Promise(resolve=>setTimeout(resolve,delay));
+   if(gen!==this.generation||settlement!==this.settlement||session!==this.sdk?.context.sessionId)return;
+   try{const mine=await this.sdk?.leaderboard?.getMyValue({boardCode:BOARD,viewCode:'weekly',window:'CURRENT'});
+    if(gen!==this.generation||settlement!==this.settlement||session!==this.sdk?.context.sessionId)return;
+    if(mine?.valueState==='AVAILABLE'){this.status(mine.projection?.status==='PENDING'?'云端已保存成绩 · 排名计算中':'云端已保存成绩');return;}
+   }catch{return;}
+  }
  }
  async board(viewCode:string){if(!this.sdk?.leaderboard)throw Error('排行榜尚未连接，请在星匣预览中打开');const args={boardCode:BOARD,viewCode,window:'CURRENT'};return Promise.all([this.sdk.leaderboard.getTop({...args,boardKind:'PLAYER_VALUE',limit:20}),this.sdk.leaderboard.getMyValue(args)]);}
 }

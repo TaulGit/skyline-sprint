@@ -47,7 +47,7 @@ npm run build
 npx tsx tools/drive-test.ts
 ```
 
-`npm run build` 会烘焙赛道、类型检查、构建 `dist/`，并生成星匣本地预览需要的根目录 `index.html`。有星匣 CLI 和创作者权限时，运行 `star-letter dev --open` 打开平台预览；上传更新使用 `star-letter publish --draft`。星匣游戏 #8537 已更新至版本 #17774。后续修改可先用 `star-letter publish --draft` 保存草稿，经确认后用 `star-letter publish` 正式更新。
+`npm run build` 会烘焙赛道、类型检查、构建 `dist/`，并生成星匣本地预览需要的根目录 `index.html`。有星匣 CLI 和创作者权限时，运行 `star-letter dev --open` 打开平台预览；上传更新使用 `star-letter publish --draft`。星匣游戏 #8537 已更新至版本 #18717。后续修改可先用 `star-letter publish --draft` 保存草稿，经确认后用 `star-letter publish` 正式更新。
 
 获取可编辑的 Blender 场景和原始导出模型：
 
@@ -68,7 +68,7 @@ git lfs pull
 | `assets/blender/` | 可编辑场景和模型源文件（Git LFS） |
 | `tools/` | 构建、音频转换与验证脚本 |
 
-当前赛道规则 `skyline-v1.1.0-dev`、物理规则 `raycast-120-v5-dev` 对应独立的预览榜 `skyline_v5_time`，避免与旧规则的成绩混排。六道检查点按路线顺序设置；漏点后冲线会显示练习完赛，不计排行榜。排行榜仅作展示；验收范围见 [ACCEPTANCE.md](ACCEPTANCE.md) 和 [CDR.md](CDR.md)。
+当前赛道规则 `skyline-v1.1.0-dev`、物理规则 `raycast-120-v6-dev` 对应独立的榜单 `skyline_v6_time`，避免与旧规则的成绩混排。六道检查点按路线顺序设置；漏点后冲线会显示练习完赛，不计排行榜。排行榜仅作展示；验收范围见 [ACCEPTANCE.md](ACCEPTANCE.md) 和 [CDR.md](CDR.md)。
 
 ## 素材来源
 
@@ -87,3 +87,5 @@ git lfs pull
 首页右上角可以切换 English / 中文；设置也有语言选项，选择保存在本机和云端设置中。菜单、HUD、结算、排行榜、操作说明与减速牌均可切换。
 
 刹车漂移进一步减弱，保留轻微转向增益。观测城移出弯道；构建前会按运行时模型的实际包围盒与摆放，检查整个赛道的行车空间，避免远景建筑遮住另一段路。布局修正保存于 `assets/source/layout-overrides.json`。
+
+新版在进入主菜单前预加载场景模型、两首 BGM 和音效，并显示进度；完赛提交后会读取本人的周榜值，确认平台是否返回已保存成绩。

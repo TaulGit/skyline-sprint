@@ -13,7 +13,7 @@ import './style.css';
 import '@fontsource/barlow-condensed/latin-600.css';
 import '@fontsource/barlow-condensed/latin-700.css';
 const app=document.querySelector<HTMLDivElement>('#app')!;
-app.innerHTML='<div class="loading"><span>SKYLINE / SPRINT</span><h1>云端极速</h1><p>加载中…</p></div>';
+app.innerHTML='<div class="loading"><span>SKYLINE / SPRINT</span><h1>云端极速</h1><p id="loading-label">加载中…</p><progress id="loading-progress" max="100" value="0"></progress><p id="loading-percent">0%</p></div>';
 translateDOM(app);setLanguage(getLanguage());
 async function boot(){
  await RAPIER.init();const response=await fetch('./assets/track.json');if(!response.ok)throw Error('赛道资源加载失败');const track:Track=await response.json();
@@ -65,7 +65,10 @@ async function boot(){
   scene.ghost.visible=mode==='race'&&platform.settings.ghost&&!!platform.best?.frames.length;if(scene.ghost.visible)playback(platform.best!.frames,race.elapsed,scene.ghost.position,scene.ghost.quaternion);scene.render(vehicle,Math.min(dt,.1),mode==='menu',platform.settings.lowMotion,race.next);sound.tick(vehicle.speed,mode==='race'&&!modal,vehicle.drifting||control().handbrake&&vehicle.grounded>0);drawMap();requestAnimationFrame(frame);}
  window.addEventListener('keydown',e=>{if(e.target instanceof HTMLInputElement||e.target instanceof HTMLSelectElement)return;if(e.target instanceof Element&&e.target.closest('button')&&['Enter','Space'].includes(e.code))return;if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Space'].includes(e.code))e.preventDefault();if(e.repeat)return;if(e.code==='KeyR'||e.code==='Enter'){e.preventDefault();start();return;}if(e.code==='KeyC'){practiceReset();return;}if(e.code==='Escape'){modal?close():settings();return;}keys.add(e.code);});window.addEventListener('keyup',e=>keys.delete(e.code));window.addEventListener('blur',()=>{keys.clear();touch.clear();race.invalidate('已离开窗口 · 练习局');});document.addEventListener('visibilitychange',()=>{if(document.hidden){race.invalidate('已切到后台 · 练习局');keys.clear();touch.clear();}});window.addEventListener('resize',()=>scene.resize());
  app.addEventListener('pointerdown',()=>sound.start());app.addEventListener('click',e=>{if((e.target as Element).closest('button'))sound.play('click',.4)});
- renderUI();void platform.init().then(()=>{applySettings();if(mode==='menu')renderUI();});void scene.loadAssets().then(applySettings).catch(e=>{toast='模型加载失败，请刷新重试';console.error(e);translateDOM(app);});requestAnimationFrame(frame);
+ const progress={models:0,music:0};const updateProgress=()=>{const value=Math.round(progress.models*.76+progress.music*.19);const bar=document.querySelector<HTMLProgressElement>('#loading-progress');if(bar)bar.value=value;const label=document.querySelector('#loading-percent');if(label)label.textContent=`${value}%`;};
+ const platformReady=platform.init();
+ try{await Promise.all([scene.loadAssets((done,total)=>{progress.models=done/total*100;updateProgress();}),sound.preload((done,total)=>{progress.music=done/total*100;updateProgress();})]);await platformReady;const bar=document.querySelector<HTMLProgressElement>('#loading-progress');if(bar)bar.value=100;const label=document.querySelector('#loading-percent');if(label)label.textContent='100%';applySettings();renderUI();requestAnimationFrame(frame);}
+ catch(e){console.error(e);throw e;}
 }
 boot().catch(e=>{app.innerHTML=`<div class="loading"><h1>加载未完成</h1><p></p><button onclick="location.reload()">重新加载</button></div>`;app.querySelector('p')!.textContent=String(e);console.error(e);translateDOM(app);});
 

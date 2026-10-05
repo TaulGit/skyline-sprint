@@ -34,7 +34,7 @@ npm run build
 
 The build bakes the track, checks scenery clearance against the full course, checks TypeScript, bundles the game and updates the Star-letter preview entry. `star-letter dev --open` opens the platform preview when the creator CLI is installed and authenticated.
 
-The creator has published game #8537 on Star-letter. This revision is published as live version #17774.
+The creator has published game #8537 on Star-letter. This revision is published as live version #18717.
 
 ## Tripo and Blender workflow
 
@@ -44,4 +44,6 @@ Blender source files include normalized assets, separated wheels, legible sign g
 
 Install Git LFS and run `git lfs pull` to retrieve editable `.blend` files and source exports. See [scene notes](assets/SCENE.md), [audio attribution](assets/AUDIO_LICENSES.md) and [submission copy](TRIPOTHON_SUBMISSION.md) for details.
 
-Current checks: 31 tests pass; complete runs at 30/60/120 render FPS finish in the same 39.904 seconds. Physics v5 uses an independent leaderboard to avoid mixing rulesets.
+Current checks: 31 tests pass; complete runs at 30/60/120 render FPS finish in the same 37.132 seconds. Physics v6 uses an independent leaderboard to avoid mixing rulesets.
+
+Scene models, both music tracks, and effects are preloaded before the menu appears. After a valid finish, the game checks the player's weekly leaderboard value.

@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-04T15:18:17.035Z",
+  "checkedAt": "2026-10-04T15:46:58.719Z",
   "gameId": 8537,
   "mode": "relative URLs without query parameters",
   "files": [
@@ -116,19 +116,19 @@
       "matchesLocal": true
     },
     {
-      "path": "assets/index-BSga8bpn.css",
+      "path": "assets/index-Cz_EWo_6.js",
       "status": 200,
-      "mime": "text/css;charset=UTF-8",
-      "bytes": 7880,
-      "sha256": "0998f55d264676161c04a73ad69971127fecb2ec299edf5b20b0afcffd2856a0",
+      "mime": "text/javascript;charset=UTF-8",
+      "bytes": 5002295,
+      "sha256": "80d4778bc4187de1aa7b45fe32fe21da2e7e1162888c16aa207d89ae588060d2",
       "matchesLocal": true
     },
     {
-      "path": "assets/index-C50870x0.js",
+      "path": "assets/index-VYmr7GYP.css",
       "status": 200,
-      "mime": "text/javascript;charset=UTF-8",
-      "bytes": 5000637,
-      "sha256": "6a4a56e8ef512d62302c0e91e23d63383583208720db9eeaa885570b9081fc42",
+      "mime": "text/css;charset=UTF-8",
+      "bytes": 8070,
+      "sha256": "b0c912b517cd1a764186cecb610bb98563f502f3cf709638d76d82937e5257c2",
       "matchesLocal": true
     },
     {
@@ -496,7 +496,7 @@
       "status": 200,
       "mime": "application/json;charset=UTF-8",
       "bytes": 307909,
-      "sha256": "4d3b267d944656d82021bf1ae46501404924acba9c7e6a090ca32a4fbf79f055",
+      "sha256": "8ed4a4d51e41e80d3347925dc948082375d61f28dfb9188a2a61730be45b45ed",
       "matchesLocal": true
     },
     {
@@ -504,7 +504,7 @@
       "status": 200,
       "mime": "text/html;charset=UTF-8",
       "bytes": 585,
-      "sha256": "3c85a57a3ddccd9ffc62b69f15552bdc500660b73290aae010d99411a235c0ef",
+      "sha256": "a59a607ae5646312d49725f32b248acc7aaaebf5e8003dbfc6e13633202e00e6",
       "matchesLocal": true
     }
   ]

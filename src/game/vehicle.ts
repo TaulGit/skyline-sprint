@@ -32,8 +32,8 @@ export class Vehicle{
    this.controller.setWheelSteering(i,i<2?-this.steering:0);
    const reverse=input.brake>0&&this.speed<1;const power=reverse?(this.speed>-12?-1900:0):input.throttle*3600*Math.max(0,1-speed/82);
    this.controller.setWheelEngineForce(i,power);
-   this.controller.setWheelBrake(i,reverse?0:this.drifting?(i>=2?input.brake*2:0):input.brake*16+(input.handbrake&&i>=2?22:0));
-   this.controller.setWheelFrictionSlip(i,this.drifting&&i>=2?.75:input.handbrake&&i>=2?.85:2.2);
+   this.controller.setWheelBrake(i,reverse?0:this.drifting?(i>=2?input.brake*1.5:0):input.brake*16+(input.handbrake&&i>=2?22:0));
+   this.controller.setWheelFrictionSlip(i,this.drifting&&i>=2?.80:input.handbrake&&i>=2?.85:2.2);
   }
   this.controller.updateVehicle(DT,undefined,undefined,c=>c.handle===this.roadHandle);this.grounded=0;this.normal.set(0,0,0);
   for(let i=0;i<4;i++)if(this.controller.wheelIsInContact(i)){this.grounded++;const n=this.controller.wheelContactNormal(i);if(n)this.normal.add(n);}
